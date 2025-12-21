@@ -1,813 +1,567 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chandukrishna_Portfolio</title>
-
-    <!-- Tailwind -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandu Krishna | Portfolio</title>
+    <link rel="icon" type="image/png" href="Images/logo.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- FontAwesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .custom-gradient {
-            background: linear-gradient(135deg, #5d608a 0%, #0a1d51 100%);
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .hover-grow {
-            transition: transform 0.3s ease;
+        .gradient-text {
+            background: linear-gradient(90deg, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .hover-grow:hover {
-            transform: scale(1.05);
+        .hero-blob {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.2) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(40px);
         }
-
-        .skill-circle {
-            width: 100px;
-            height: 100px;
-        }
-
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        .section {
-            scroll-margin-top: 40px;
-        }
-
-        .running-text {
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        #changing-word {
-            transition: opacity 0.3s;
-        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #60a5fa; }
     </style>
 </head>
+<body>
 
-<body class="bg-gray-50 font-sans">
-
-    <!-- NAVIGATION -->
-    <nav id="headerNav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-
-            <!-- Logo -->
-             <a href="#" class="flex items-center">
-                <img id="navLogo" src="Images/Portfolio-logo2.png" alt="Portfolio Logo" class="object-contain transition-all duration-300" style="width: 50px; height: 50px;" />
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="nav-link text-white hover:text-blue-300 text-lg font-bold">Home</a>
-                <a href="#about" class="nav-link  text-white hover:text-blue-600 text-lg font-bold">About</a>
-                <a href="#skills" class="nav-link text-white hover:text-blue-600 text-lg font-bold">Skills</a>
-                <a href="#projects" class="nav-link text-white hover:text-blue-600 text-lg font-bold">Projects</a>
-                <a href="#experience" class="nav-link text-white hover:text-blue-600 text-lg font-bold">Experience</a>
-                <a href="#contact" class="nav-link text-white hover:text-blue-600 text-lg font-bold">Contact</a>
+    <nav class="fixed w-full z-50 transition-all duration-300 py-4" id="navbar">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex flex-col items-start">
+              <a href="#" class="block">
+                <img src="Images/logo.png" alt="Chandu Krishna Logo" class="h-10 w-auto hover:opacity-80 transition-opacity">
+              </a>
+              <span class="text-[9px] uppercase tracking-[0.25em] text-slate-400 font-medium mt-1 ml-1">
+                Explore. Innovate. Grow
+              </span>
             </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobileMenuBtn" class="md:hidden focus:outline-none">
-
-                <!-- Hamburger -->
-                <svg id="menu-icon" class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-
-                <!-- Close -->
-                <svg id="close-icon" class="w-6 h-6 text-gray-800 hidden" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12" />
-                </svg>
-
-            </button>
-
-            <!-- Mobile Menu -->
-            <div id="mobileNavLinks"
-                class="hidden absolute top-16 left-0 w-full bg-white shadow-lg z-50 flex flex-col p-6 md:hidden">
-
-                <a href="#home" class="nav-link block py-2 px-4 text-gray-800 hover:bg-blue-50 rounded">Home</a>
-                <a href="#about" class="nav-link block py-2 px-4 text-gray-800 hover:bg-blue-50 rounded">About</a>
-                <a href="#skills" class="nav-link block py-2 px-4 text-gray-800 hover:bg-blue-50 rounded">Skills</a>
-                <a href="#projects" class="nav-link block py-2 px-4 text-gray-800 hover:bg-blue-50 rounded">Projects</a>
-                <a href="#experience" class="nav-link block py-2 px-4 text-gray-800 hover:bg-blue-50 rounded">Experience</a>
-                <a href="#contact" class="nav-link block py-2 px-4 text-gray-800 hover:bg-blue-50 rounded">Contact</a>
-
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#" class="hover:text-blue-400 transition">Home</a>
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#timeline" class="hover:text-blue-400 transition">Timeline</a>
+                <a href="blog.html" class="px-6 py-2 border border-blue-500 text-blue-400 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300">Blog & Services</a>
+                <a href="#contact" class="px-5 py-2 bg-blue-600 rounded-full hover:bg-blue-700 transition shadow-lg">Hire Me</a>
             </div>
-
+            <button class="md:hidden text-2xl" id="menu-btn"><i class="fas fa-bars" id="menu-icon"></i></button>
+        </div>
+        <div class="hidden md:hidden absolute top-full left-0 w-full glass p-6 space-y-4" id="mobile-menu">
+            <a href="#" class="block mobile-link">Home</a>
+            <a href="#about" class="block mobile-link">About</a>
+            <a href="#skills" class="block mobile-link">Skills</a>
+            <a href="#projects" class="block mobile-link">Projects</a>
+            <a href="#timeline" class="block mobile-link">Timeline</a>
+            <a href="#contact" class="block w-full py-3 bg-blue-600 rounded-xl text-center mobile-link">Hire Me</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="custom-gradient text-white pt-[140px] pb-[20px] section">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-
-            <!-- Image -->
-           <div class="md:w-1/2 flex justify-center items-center">
-    <img src="Images/Portfolio-profile.png"
-         alt="Professional portrait of Chandu Krishna Nandarapi"
-         class="rounded-xl w-full max-w-[390px] md:max-w-[390px] object-cover bg-transparent shadow-none" />
-</div>
-
-
-
-            <!-- Text Content -->
-            <div class="md:w-1/2 text-center md:text-left">
-                <p class="text-blue-200 text-xl mb-2">Hello, I'm</p>
-
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Chandu Krishna N</h1>
-
-                <h2 class="text-2xl md:text-3xl font-semibold mb-6 running-text">
-                    I'm aspiring <span id="changing-word" class="text-blue-200 font-bold">Data Analyst</span>
-                </h2>
-
-                <p class="text-lg mb-8 max-w-lg">
-                    Skilled in Python, SQL, Excel, and Power BI. Passionate about data-driven decision making and turning
-                    raw data into actionable insights.
+    <section id="home" class="min-h-screen flex items-center relative pt-20">
+        <div class="hero-blob top-20 left-10"></div>
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <h2 class="text-blue-400 font-semibold mb-2">Aspiring <span id="changing-word" class="text-white">Data Analyst</span></h2>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Chandu <span class="gradient-text">Krishna</span>
+                </h1>
+                <p class="text-xl text-slate-400 mb-8 max-w-lg leading-relaxed">
+                    Transforming raw data into strategic assets. Specializing in Python, SQL, and Power BI to solve complex business puzzles.
                 </p>
-
-                <!-- Buttons -->
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#contact"
-                        class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300">
-                        Hire Me
-                    </a>
-
-                    <a href="#projects"
-                        class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
-                        View Projects
-                    </a>
-
-                    <a href="Images/chandukrishna_resume.pdf" download
-                        class="bg-blue-800 text-white px-5 py-3 rounded-lg hover:bg-blue-700">
-                        Download CV
-                    </a>
+                <div class="flex gap-4">
+                    <a href="Images/chandukrishna_resume.pdf" class="px-8 py-3 glass rounded-xl hover:bg-white hover:text-black transition">Download CV</a>
+                    <a href="#projects" class="px-8 py-3 bg-blue-600 rounded-xl hover:bg-blue-700 transition">View Work</a>
                 </div>
-
-                <div class="mt-6 text-sm text-blue-100">
-                    <span class="inline-block mr-2">I'm currently:</span>
-                    <span class="inline-block bg-white bg-opacity-10 px-3 py-1 rounded-full">Open to opportunities</span>
-                </div>
-
             </div>
-
+            
+            <div class="order-1 md:order-2 flex justify-center">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                    <img src="Images/profile.png" class="relative rounded-2xl w-80 md:w-96 grayscale hover:grayscale-0 transition duration-500 shadow-2xl" alt="Chandu Krishna">
+                </div>
+            </div>
         </div>
     </section>
 
-   <!-- ABOUT SECTION -->
-<section id="about" class="pt-[66px] pb-[30px] bg-white section">
-    <div class="container mx-auto px-6">
-
-        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">About Me</h2>
-
-        <div class="flex flex-col md:flex-row items-center">
-
-            <!-- Image -->
-            <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                <img src="Images/Portfolio-about.png"
-                    class="rounded-lg shadow-lg w-[500px] h-[500px] object-cover" />
+     <div class="container mx-auto px-6 py-10">
+        <div class="glass p-8 rounded-3xl flex flex-wrap justify-around gap-8 text-center">
+            <div>
+                <h3 class="text-3xl font-bold">10+</h3>
+                <p class="text-slate-400 text-sm">Projects Completed</p>
             </div>
-
-            <!-- Right Content -->
-            <div class="md:w-2/3 md:pl-12">
-
-                <p class="text-lg text-gray-700 mb-6">
-                    I’m an aspiring Data Analyst skilled in Python, SQL, Excel, Power BI, and Data Visualization.
-I have experience working on end-to-end analytics projects including sales analysis, booking insights, and dashboard development. I’ve completed virtual analytics programs with TATA and Deloitte, where I practiced EDA, reporting, and business case problem-solving.
-I’m currently looking for Data Analyst and Python Developer roles to apply my skills and grow professionally.
-                </p>
-
-          <!-- Education + Currently + Languages Grid -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-
-                  <!-- EDUCATION COLUMN -->
-                  <div>
-                      <h3 class="text-xl font-semibold mb-4 text-gray-800">Education</h3>
-
-                      <div class="space-y-4">
-
-                          <div class="border-l-4 border-blue-500 pl-4">
-                              <h4 class="font-medium">Bachelor of Technology</h4>
-                              <p class="text-gray-600">Saveetha Institute of Medical and Technical Sciences, Chennai</p>
-                              <p class="text-gray-500">CGPA: 8.27/10</p>
-                          </div>
-
-                          <div class="border-l-4 border-blue-500 pl-4">
-                              <h4 class="font-medium">Intermediate</h4>
-                              <p class="text-gray-600">Sri Chaitanya Junior College, Tirupati</p>
-                              <p class="text-gray-500">CGPA: 9.32/10</p>
-                          </div>
-
-                          <div class="border-l-4 border-blue-500 pl-4">
-                              <h4 class="font-medium">SSC</h4>
-                              <p class="text-gray-600">Zilla Parishad High School, Srirangarajapuram</p>
-                              <p class="text-gray-500">CGPA: 9.5/10</p>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <!-- CURRENTLY + LANGUAGES COLUMN -->
-                  <div>
-
-                      <!-- CURRENTLY BOX -->
-                      <div class="bg-gray-50 p-6 rounded-lg shadow-sm mb-6">
-                          <h4 class="font-semibold text-lg mb-2">Currently</h4>
-
-                          <p class="text-sm text-gray-600 leading-relaxed">
-                            Seeking Data Analyst, Business Analyst, or Python Developer roles to apply my data cleaning, analysis, visualization and problem-solving to support business decision-making.
-                          </p>
-
-                          <div class="mt-3 flex flex-wrap gap-2">
-                              <a href="#contact"
-                                class="text-sm px-3 py-1 rounded-full bg-indigo-50 text-indigo-700">Get in touch</a>
-
-                              <a href="#projects"
-                                class="text-sm px-3 py-1 rounded-full bg-slate-50 text-slate-700">See projects</a>
-                          </div>
-                      </div>
-
-                      <!-- LANGUAGES BOX (now correctly placed under Currently) -->
-                      <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                          <h4 class="font-semibold text-lg mb-2">Languages</h4>
-
-                          <div class="flex flex-wrap gap-3">
-                              <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">English</span>
-                              <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Telugu</span>
-                              <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Tamil</span>
-                              <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Kannada</span>
-                          </div>
-                      </div>
-
-                  </div>
-
-              </div>
-
+            <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
+            <div>
+                <h3 class="text-3xl font-bold">Python</h3>
+                <p class="text-slate-400 text-sm">Core Language</p>
+            </div>
+             <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
+            <div>
+                <h3 class="text-3xl font-bold">SQL | Excel</h3>
+                <p class="text-slate-400 text-sm">Core Analytics Skills</p>
+            </div>
+            <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
+            <div>
+                <h3 class="text-3xl font-bold">BI Tools</h3>
+                <p class="text-slate-400 text-sm">Power BI & Tableau</p>
+            </div>
+            <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
+            <div>
+                <h3 class="text-3xl font-bold">Web Dev</h3>
+                <p class="text-slate-400 text-sm">Portfolio & Websites Dev.</p>
             </div>
         </div>
     </div>
-</section>
 
-
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="pt-[66px] pb-[30px] bg-gray-100 section">
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div class="hero-blob top-0 right-0 opacity-50"></div>
+        
         <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                <span class="text-blue-500">About</span> Me
+            </h2>
 
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">My Skills</h2>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-
-                <!-- Python -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
-                    <div class="text-blue-600 text-4xl mb-4">
-                        <i class="fab fa-python"></i>
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                
+                <div class="space-y-8">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition"></div>
+                        <img src="Images/Portfolio-about.png" class="relative rounded-3xl w-full object-cover shadow-2xl border border-slate-700/50" alt="About Chandu">
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Python</h3>
-                    <p class="text-gray-600">
-                        Proficient in Python libraries like NumPy, Pandas, Matplotlib/Seaborn
-                        for data analysis and visualization.
-                    </p>
-                </div>
 
-                <!-- SQL -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
-                    <div class="text-blue-600 text-4xl mb-4">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">SQL</h3>
-                    <p class="text-gray-600">
-                        Strong skills in database management, querying, optimization using MySQL & SQL.
-                    </p>
-                </div>
-
-                <!-- Excel -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
-                    <div class="text-blue-600 text-4xl mb-4">
-                        <i class="fas fa-table"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Excel</h3>
-                    <p class="text-gray-600">
-                        Expertise in data validation, analysis, Pivot tables, visualization
-                        and dashboard creation.
-                    </p>
-                </div>
-
-                <!-- Power BI -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
-                    <div class="text-blue-600 text-4xl mb-4">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Power BI</h3>
-                    <p class="text-gray-600">
-                        Creating interactive dashboards and reports for BI and data insights.
-                    </p>
-                </div>
-
-                <!-- Web Development -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover-grow">
-                    <div class="text-blue-600 text-4xl mb-4">
-                        <i class="fa-solid fa-code fa-lg"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Web Development</h3>
-                    <p class="text-gray-600">
-                        Skilled in HTML5, CSS3, JavaScript, and basic React for UI development.
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- Other Technical Skills -->
-            <h3 class="text-2xl font-semibold mb-6 text-gray-800 text-center">Other Technical Skills</h3>
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">ETL</span>
-                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">EDA</span>
-                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">BigQuery</span>
-                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Machine Learning</span>
-                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Notebooks</span>
-                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">HTML, CSS, JS</span>
-            </div>
-
-            <!-- Tools -->
-            <h3 class="text-2xl font-semibold mb-6 text-gray-800 text-center">Tools</h3>
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">PyCharm</span>
-                <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Office 365</span>
-                <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">MySQL Workbench</span>
-                <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Tableau / Power BI</span>
-                <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Jupyter</span>
-                <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">VS Code</span>
-                <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Git & GitHub</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="pt-[66px] pb-[30px] bg-white section">
-        <div class="container mx-auto px-6">
-
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">My Projects</h2>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Project 1 -->
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg hover-grow">
-                    <div class="relative">
-                        <img src="Images/Portfolio-project2.jpeg"
-                            class="w-[600px] h-[300px] object-cover mx-auto" />
-                        <div class="absolute inset-0 bg-blue-600 bg-opacity-75 flex items-center justify-center opacity-0 transition-opacity duration-300 project-overlay">
-                            <a href="#" class="text-white text-lg font-semibold">View Details</a>
+                    <div class="glass p-8 rounded-[2rem] border-l-4 border-l-blue-500">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="relative flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                            </span>
+                            <h3 class="text-xl font-bold uppercase tracking-wider text-blue-400">Currently</h3>
                         </div>
-                    </div>
-
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Hotel Booking Cancellation</h3>
-                        <p class="text-gray-600 mb-4">
-                            Developed data cleaning, modeling, visualization dashboard using Excel.
+                        <p class="text-slate-300 leading-relaxed mb-6">
+                            Seeking Data Analyst, Business Analyst, or Python Developer roles to apply my data cleaning, analysis, visualization, and problem-solving to support business decision-making.
                         </p>
-
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Python</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Excel</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Pivot Table</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Dashboard</span>
+                        <div class="flex gap-4">
+                            <a href="#contact" class="text-sm font-semibold text-white bg-blue-600/20 px-4 py-2 rounded-full border border-blue-600/30 hover:bg-blue-600 transition">Get in touch</a>
+                            <a href="#projects" class="text-sm font-semibold text-slate-400 px-4 py-2 rounded-full hover:text-white transition">See projects →</a>
                         </div>
-
-                        <a href="https://github.com/chandunandarapu/Hotel-Booking-Cancellation-.git"
-                            class="text-blue-600 font-medium hover:underline">
-                            View on GitHub
-                        </a>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg hover-grow">
-                    <div class="relative">
-                        <img src="Images/Portfolio-project1.png"
-                            class="w-[600px] h-[300px] object-cover mx-auto" />
-
-                        <div class="absolute inset-0 bg-blue-600 bg-opacity-75 flex items-center justify-center opacity-0 transition-opacity duration-300 project-overlay">
-                            <a href="#" class="text-white text-lg font-semibold">View Details</a>
-                        </div>
-                    </div>
-
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Flipkart Sales Analysis</h3>
-                        <p class="text-gray-600 mb-4">
-                            Analysis using Python, SQL, Excel & Power BI dashboards.
+                <div class="space-y-12">
+                    <div class="glass p-8 rounded-[2rem]">
+                        <p class="text-lg text-slate-300 leading-relaxed">
+                            I'm an aspiring <span class="text-white font-semibold">Data Analyst</span> skilled in Python, SQL, Excel, Power BI, and Data Visualization. I have experience working on end-to-end analytics projects including sales analysis, booking insights, and dashboard development. 
                         </p>
-
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Python</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Excel</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">SQL</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Power BI</span>
-                        </div>
-
-                        <a href="https://github.com/chandunandarapu/Data-Analyst-Projects"
-                            class="text-blue-600 font-medium hover:underline">
-                            View on GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg hover-grow">
-                    <div class="relative">
-                        <img src="Images/Portfolio-project5.jpg"
-                            class="w-[600px] h-[300px] object-cover mx-auto" />
-
-                        <div class="absolute inset-0 bg-blue-600 bg-opacity-75 flex items-center justify-center opacity-0 transition-opacity duration-300 project-overlay">
-                            <a href="#" class="text-white text-lg font-semibold">View Details</a>
-                        </div>
-                    </div>
-
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Web Development Projects</h3>
-                        <p class="text-gray-600 mb-4">
-                            Responsive static websites built using HTML, CSS, JavaScript.
+                        <p class="text-lg text-slate-300 mt-4 leading-relaxed">
+                            I've completed virtual analytics programs with <span class="text-blue-400">TATA</span> and <span class="text-purple-400">Deloitte</span>, where I practiced EDA, reporting, and business case problem-solving. I'm currently looking for Data Analyst and Python Developer roles to apply my skills and grow professionally.
                         </p>
-
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">HTML5</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CSS3</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">JavaScript</span>
-                        </div>
-
-                        <a href="https://github.com/chandunandarapu/Web-Development-Project.git"
-                            class="text-blue-600 font-medium hover:underline">
-                            View Projects
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="pt-[50px] pb-[30px] bg-gray-200 section">
-        <div class="container mx-auto px-6">
-
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">My Experience</h2>
-
-            <div class="grid grid-cols-1 gap-4">
-
-                <!-- TATA -->
-                <div class="bg-white p-12 rounded-2xl shadow-2xl hover-grow min-h-[350px]">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Tata Group Data Analytics Job Simulation</h3>
-                            <h4 class="text-xl text-blue-700 font-semibold">Tata iQ</h4>
-                        </div>
-
-                        <div class="text-gray-700 text-lg font-medium">July 2025 - Aug 2025</div>
                     </div>
 
-                    <p class="text-gray-800 mb-6 text-lg">
-                        Completed advanced analytics job simulation at Tata iQ...
-                    </p>
-
-                    <ul class="list-disc pl-8 space-y-3 text-gray-800 text-base">
-                        <li>Performed EDA using GenAI tools...</li>
-                        <li>Proposed predictive modeling approach...</li>
-                        <li>Designed AI-driven collections workflow...</li>
-                    </ul>
-                </div>
-
-                <!-- Deloitte -->
-                <div class="bg-white p-12 rounded-2xl shadow-2xl hover-grow min-h-[350px]">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Data Analytics Virtual Simulation</h3>
-                            <h4 class="text-xl text-blue-700 font-semibold">Deloitte</h4>
-                        </div>
-
-                        <div class="text-gray-700 text-lg font-medium">Feb 2025 - Apr 2025</div>
-                    </div>
-
-                    <p class="text-gray-800 mb-6 text-lg">
-                        Completed data analytics and forensic technology simulation...
-                    </p>
-
-                    <ul class="list-disc pl-8 space-y-3 text-gray-800 text-base">
-                        <li>Performed EDA on large datasets...</li>
-                        <li>Created dashboards in Power BI...</li>
-                        <li>Generated actionable business insights...</li>
-                    </ul>
-                </div>
-
-                <!-- TRIX -->
-                <div class="bg-white p-12 rounded-2xl shadow-2xl hover-grow min-h-[350px]">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Web Development Intern</h3>
-                            <h4 class="text-xl text-blue-700 font-semibold">TRIX Education</h4>
-                        </div>
-
-                        <div class="text-gray-700 text-lg font-medium">Mar 2021 - Apr 2021</div>
-                    </div>
-
-                    <p class="text-gray-800 mb-6 text-lg">
-                        Built responsive static websites using HTML, CSS, JS.
-                    </p>
-
-                    <ul class="list-disc pl-8 space-y-3 text-gray-800 text-base">
-                        <li>Developed mobile-friendly UI layouts</li>
-                        <li>Improved user navigation and accessibility</li>
-                        <li>Used GitHub + VS Code for workflow</li>
-                    </ul>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="pt-10 pb-10 section">
-        <div class="container mx-auto px-6">
-
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Get In Touch</h2>
-
-            <div class="flex flex-col lg:flex-row gap-12 items-stretch">
-
-                <!-- Contact Info -->
-                <div class="lg:w-1/2">
-                    <div class="bg-white p-4 rounded-xl shadow-xl min-h-[250px]">
-
-                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
-
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                            <i class="fas fa-graduation-cap text-blue-500"></i> Education
+                        </h3>
                         <div class="space-y-6">
-
-                            <!-- Email -->
-                            <div class="flex items-start">
-                                <i class="fas fa-envelope text-blue-600 text-xl mr-4 mt-1"></i>
-                                <div>
-                                    <h4 class="font-medium text-gray-800">Email</h4>
-                                    <a href="mailto:chandunandarapu01@gmail.com"
-                                        class="text-gray-600 hover:text-blue-600">
-                                        chandunandarapu01@gmail.com
-                                    </a>
-                                </div>
+                            <div class="relative pl-8 border-l-2 border-slate-700 hover:border-blue-500 transition-colors group">
+                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-800 border-2 border-slate-700 group-hover:bg-blue-500 group-hover:border-blue-500 transition"></div>
+                                <h4 class="text-white font-bold text-lg">Bachelor of Technology</h4>
+                                <p class="text-slate-400 text-sm">Saveetha Institute of Medical and Technical Sciences, Chennai</p>
+                                <span class="inline-block mt-2 px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded-lg border border-blue-500/20">CGPA: 8.27/10</span>
                             </div>
 
-                            <!-- Phone -->
-                            <div class="flex items-start">
-                                <i class="fas fa-phone text-blue-600 text-xl mr-4 mt-1"></i>
-                                <div>
-                                    <h4 class="font-medium text-gray-800">Phone</h4>
-                                    <a href="tel:+919493013084" class="text-gray-600 hover:text-blue-600">
-                                        +91 9493013084
-                                    </a>
-                                </div>
+                            <div class="relative pl-8 border-l-2 border-slate-700 hover:border-blue-500 transition-colors group">
+                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-800 border-2 border-slate-700 group-hover:bg-blue-500 group-hover:border-blue-500 transition"></div>
+                                <h4 class="text-white font-bold text-lg">Intermediate</h4>
+                                <p class="text-slate-400 text-sm">Sri Chaitanya Junior College, Tirupati</p>
+                                <span class="inline-block mt-2 px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded-lg border border-blue-500/20">CGPA: 9.32/10</span>
                             </div>
 
-                            <!-- Location -->
-                            <div class="flex items-start">
-                                <i class="fas fa-map-marker-alt text-blue-600 text-xl mr-4 mt-1"></i>
-                                <div>
-                                    <h4 class="font-medium text-gray-800">Location</h4>
-                                    <p class="text-gray-600">
-                                        1-44, Narasimharapuram, NR Puram Post<br />
-                                        Srirangarajapuram Mandal, Chittoor<br />
-                                        Andhra Pradesh, India – 517421
-                                    </p>
-                                </div>
+                            <div class="relative pl-8 border-l-2 border-slate-700 hover:border-blue-500 transition-colors group">
+                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-800 border-2 border-slate-700 group-hover:bg-blue-500 group-hover:border-blue-500 transition"></div>
+                                <h4 class="text-white font-bold text-lg">SSC</h4>
+                                <p class="text-slate-400 text-sm">Zilla Parishad High School, Srirangarajapuram</p>
+                                <span class="inline-block mt-2 px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded-lg border border-blue-500/20">CGPA: 9.5/10</span>
                             </div>
-
-                            <!-- LinkedIn -->
-                            <div class="flex items-start">
-                                <i class="fab fa-linkedin text-blue-600 text-xl mr-4 mt-1"></i>
-                                <div>
-                                    <h4 class="font-medium text-gray-800">LinkedIn</h4>
-                                    <a href="https://www.linkedin.com/in/nchandukrishna/"
-                                        class="text-gray-600 hover:text-blue-600">
-                                        linkedin.com/in/nchandukrishna
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!-- GitHub -->
-                            <div class="flex items-start">
-                                <i class="fab fa-github text-blue-600 text-xl mr-4 mt-1"></i>
-                                <div>
-                                    <h4 class="font-medium text-gray-800">GitHub</h4>
-                                    <a href="https://github.com/chandunandarapu"
-                                        class="text-gray-600 hover:text-blue-600">
-                                        github.com/chandukrishna
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!-- WhatsApp -->
-                            <div class="flex items-start">
-                                <i class="fab fa-whatsapp text-blue-600 text-xl mr-4 mt-1"></i>
-                                <div>
-                                    <h4 class="font-medium text-gray-800">WhatsApp</h4>
-                                    <a href="https://wa.me/919493013084"
-                                        class="text-gray-600 hover:text-blue-600">
-                                        Click Here
-                                    </a>
-                                </div>
-                            </div>
-
                         </div>
+                    </div>
 
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                            <i class="fas fa-language text-purple-500"></i> Languages
+                        </h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="glass px-5 py-2 rounded-xl text-sm font-medium hover:bg-white hover:text-black transition cursor-default">English</span>
+                            <span class="glass px-5 py-2 rounded-xl text-sm font-medium hover:bg-white hover:text-black transition cursor-default">Telugu</span>
+                            <span class="glass px-5 py-2 rounded-xl text-sm font-medium hover:bg-white hover:text-black transition cursor-default">Tamil</span>
+                            <span class="glass px-5 py-2 rounded-xl text-sm font-medium hover:bg-white hover:text-black transition cursor-default">Kannada</span>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Form -->
-                <div class="lg:w-1/2">
-                    <div class="bg-white p-3 rounded-xl shadow-xl min-h-[250px]">
-
-                        <h3 class="text-xl font-semibold mb-6">Send Me a Message</h3>
-
-                        <form action="https://getform.io/f/aroggxvb" method="POST">
-
-                            <div class="mb-4">
-                                <label class="block text-gray-700 mb-2">Your Name</label>
-                                <input type="text" name="name"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600"
-                                    required />
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="block text-gray-700 mb-2">Your Email</label>
-                                <input type="email" name="email"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600"
-                                    required />
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="block text-gray-700 mb-2">Subject</label>
-                                <input type="text" name="subject"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600"
-                                    required />
-                            </div>
-
-                            <div class="mb-6">
-                                <label class="block text-gray-700 mb-2">Your Message</label>
-                                <textarea name="message" rows="3"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 resize-none"
-                                    required></textarea>
-                            </div>
-
-                            <button type="submit"
-                                class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 w-full">
-                                Send Message
-                            </button>
-
-                        </form>
-
-                    </div>
-                </div>
-
             </div>
-
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-800 text-white py-2">
+    <section id="skills" class="py-24 bg-slate-900/50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-16 underline decoration-blue-500 underline-offset-8">Technical Stack</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <div class="glass p-6 rounded-2xl hover:border-blue-500 transition group">
+                    <i class="fab fa-python text-4xl mb-4 group-hover:scale-110 transition"></i>
+                    <p class="font-semibold">Python</p>
+                </div>
+                <div class="glass p-6 rounded-2xl hover:border-blue-500 transition group">
+                    <i class="fas fa-database text-4xl mb-4 group-hover:scale-110 transition"></i>
+                    <p class="font-semibold">SQL/MySQL</p>
+                </div>
+                <div class="glass p-6 rounded-2xl hover:border-blue-500 transition group">
+                    <i class="fas fa-chart-pie text-4xl mb-4 group-hover:scale-110 transition"></i>
+                    <p class="font-semibold">Power BI</p>
+                </div>
+                <div class="glass p-6 rounded-2xl hover:border-blue-500 transition group">
+                    <i class="fas fa-file-excel text-4xl mb-4 group-hover:scale-110 transition"></i>
+                    <p class="font-semibold">Excel</p>
+                </div>
+                <div class="glass p-6 rounded-2xl hover:border-blue-500 transition group">
+                    <i class="fas fa-code text-4xl mb-4 group-hover:scale-110 transition"></i>
+                    <p class="font-semibold">Web Dev</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="projects" class="py-24">
         <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <h2 class="text-4xl font-bold">Featured <span class="text-blue-500">Analytics</span></h2>
+                    <p class="text-slate-400 mt-2">Solving real-world business problems through data.</p>
+                </div>
+                <a href="https://github.com/chandunandarapu" class="text-blue-400 hover:text-blue-300 flex items-center gap-2">
+                    All Projects <i class="fas fa-arrow-right text-sm"></i>
+                </a>
+            </div>
 
-            <div class="flex flex-row items-center justify-between w-full">
-
-                <div class="flex flex-col items-start">
-                    <a href="#">
-                        <img src="Images/Portfolio-logo2.png" class="object-contain" style="width: 45px; height: 45px;" />
-                    </a>
-                    <p class="text-gray-400 mt-0.5">Explore. Innovate. Grow</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass rounded-3xl overflow-hidden group">
+                    <img src="Images/Portfolio-project1.png" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500" alt="Flipkart Project">
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-xs font-bold px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full">Python</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full">Power BI</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Flipkart Sales Analysis Dashboard</h3>
+                        <p class="text-slate-400 mb-6">Uncovered revenue patterns and customer buying behavior using end-to-end data pipeline.</p>
+                        <a href="#" class="text-white flex items-center gap-2 font-semibold group-hover:gap-4 transition-all">Case Study <i class="fas fa-external-link-alt text-sm"></i></a>
+                    </div>
                 </div>
 
-                <div class="flex flex-row space-x-6">
-                    <a href="https://www.linkedin.com/in/nchandukrishna/" class="text-gray-400 hover:text-white text-3xl">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/chandunandarapu" class="text-gray-400 hover:text-white text-3xl">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://x.com/Chandureddy03" class="text-gray-400 hover:text-white text-3xl">
-                        <i class="fab fa-twitter"></i>
-                    </a>
+                <div class="space-y-8">
+                    <div class="glass rounded-3xl p-6 flex gap-6 hover:bg-slate-800/50 transition">
+                        <div class="w-32 h-32 flex-shrink-0 bg-blue-900/30 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-hotel text-3xl text-blue-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Hotel Cancellation Trends</h4>
+                            <p class="text-sm text-slate-400 mb-4">Predictive insights into booking drops using Excel & Python.</p>
+                            <a href="#" class="text-blue-400 text-sm font-bold">View Repo</a>
+                        </div>
+                    </div>
+
+                    <div class="glass rounded-3xl p-6 flex gap-6 hover:bg-slate-800/50 transition">
+                        <div class="w-32 h-32 flex-shrink-0 bg-purple-900/30 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-3xl text-purple-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Web Interaction Analytics</h4>
+                            <p class="text-sm text-slate-400 mb-4">Static site performance tracking and responsive UI design.</p>
+                            <a href="#" class="text-blue-400 text-sm font-bold">View Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="py-24 bg-slate-900/30 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold mb-4">Professional <span class="text-blue-500">Journey</span> & Experience</h2>
+                <p class="text-slate-400">Validated expertise through industry simulations and academic milestones.</p>
+            </div>
+
+            <div class="flex justify-center mb-12">
+                <div class="glass px-6 py-3 rounded-full border border-blue-500/30 flex items-center gap-3 animate-bounce">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    <span class="text-sm font-bold tracking-wide text-blue-100">OPEN TO WORK: SEEKING FULL-TIME JOB ROLES</span>
+                </div>
+            </div>
+            
+            <div class="max-w-5xl mx-auto relative">
+                <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent opacity-30"></div>
+
+                <div class="mb-16 relative flex flex-col md:flex-row items-center group">
+                    <div class="hidden md:block md:w-1/2"></div>
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-10 h-10 glass rounded-full flex items-center justify-center z-10 border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                        <i class="fas fa-certificate text-blue-400 text-sm"></i>
+                    </div>
+                    <div class="md:w-1/2 pl-12 md:pl-16">
+                        <div class="glass p-8 rounded-3xl border border-transparent hover:border-blue-500 transition-all duration-500 group-hover:-translate-y-2">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="text-blue-400 font-bold text-xs tracking-widest uppercase">Aug 2025</span>
+                                <span class="bg-blue-500/20 text-blue-400 text-[10px] px-2 py-1 rounded-md border border-blue-500/30">VERIFIED</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Tata Group Data Analytics</h3>
+                            <p class="text-blue-200/70 font-medium mb-4 italic">Forage Job Simulation</p>
+                            <ul class="space-y-2 text-slate-400 text-sm mb-6">
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check-circle text-blue-500 mt-1"></i>
+                                    <span>Mastered EDA and Data Visualization for TATA iQ.</span>
+                                </li>
+                            </ul>
+                            <a href="Certificates/Tata_Certificate.pdf" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                                <i class="fas fa-external-link-alt"></i> VIEW CERTIFICATE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-16 relative flex flex-col md:flex-row items-center group">
+                    <div class="md:w-1/2 pr-0 md:pr-16 order-2 md:order-1 pl-12 md:pl-0">
+                        <div class="glass p-8 rounded-3xl border border-transparent hover:border-purple-500 transition-all duration-500 group-hover:-translate-y-2 md:text-right">
+                            <div class="flex md:flex-row-reverse justify-between items-start mb-2">
+                                <span class="text-purple-400 font-bold text-xs tracking-widest uppercase">Apr 2025</span>
+                                <span class="bg-purple-500/20 text-purple-400 text-[10px] px-2 py-1 rounded-md border border-purple-500/30">COMPLETED</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Deloitte STEM Analytics</h3>
+                            <p class="text-purple-200/70 font-medium mb-4 italic">Forensic & Data Analytics</p>
+                            <ul class="space-y-2 text-slate-400 text-sm mb-6 md:flex md:flex-col md:items-end">
+                                <li class="flex items-start gap-2 md:flex-row-reverse">
+                                    <i class="fas fa-check-circle text-purple-500 mt-1"></i>
+                                    <span>Validated skills in Tableau and Forensic discovery.</span>
+                                </li>
+                            </ul>
+                            <a href="Certificates/Deloitte_Certificate.pdf" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-700 transition">
+                                <i class="fas fa-external-link-alt"></i> VIEW CERTIFICATE
+                            </a>
+                        </div>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-10 h-10 glass rounded-full flex items-center justify-center z-10 border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.5)] order-1 md:order-2">
+                        <i class="fas fa-award text-purple-400 text-sm"></i>
+                    </div>
+                    <div class="hidden md:block md:w-1/2 order-3"></div>
+                </div>
+
+                <div class="mb-16 relative flex flex-col md:flex-row items-center group">
+                    <div class="hidden md:block md:w-1/2"></div>
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-10 h-10 glass rounded-full flex items-center justify-center z-10 border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                        <i class="fas fa-laptop-code text-blue-400 text-sm"></i>
+                    </div>
+                    <div class="md:w-1/2 pl-12 md:pl-16">
+                        <div class="glass p-8 rounded-3xl border border-transparent hover:border-blue-500 transition-all duration-500 group-hover:-translate-y-2">
+                            <span class="text-blue-400 font-bold text-xs tracking-widest uppercase">Apr 2021</span>
+                            <h3 class="text-2xl font-bold mt-2 text-white">Web Development Intern</h3>
+                            <p class="text-blue-200/70 font-medium mb-4 italic">Trix Education (Internship)</p>
+                            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                                Gained hands-on experience in building scalable front-end components.
+                            </p>
+                            <a href="Certificates/Trix_Internship.pdf" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-blue-600/20 border border-blue-500/30 px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                                <i class="fas fa-file-pdf"></i> INTERN LETTER
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
             </div>
-
         </div>
+    </section>
+
+    <section id="certifications" class="py-24 bg-slate-900/50 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Core <span class="text-blue-500">Certifications</span></h2>
+                <p class="text-slate-400">Click on any skill to verify my professional credentials and expertise.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                
+                <a href="Certificates/Python_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-blue-500 hover:bg-slate-800/80 transition-all duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center group-hover:bg-blue-500/20 transition">
+                            <i class="fab fa-python text-2xl text-blue-400"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-blue-400 text-xs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Python</h3>
+                    <p class="text-slate-400 text-sm">Programming & Data Structures</p>
+                </a>
+
+                <a href="Certificates/SQL_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-blue-500 hover:bg-slate-800/80 transition-all duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center group-hover:bg-purple-500/20 transition">
+                            <i class="fas fa-database text-2xl text-purple-400"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-purple-400 text-xs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">SQL / MySQL</h3>
+                    <p class="text-slate-400 text-sm">Database Management & Querying</p>
+                </a>
+
+                <a href="Certificates/Excel_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-green-500 hover:bg-slate-800/80 transition-all duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center group-hover:bg-green-500/20 transition">
+                            <i class="fas fa-file-excel text-2xl text-green-400"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-green-400 text-xs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Excel</h3>
+                    <p class="text-slate-400 text-sm">Data Analysis & Pivot Tables</p>
+                </a>
+
+                <a href="Certificates/PowerBI_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-yellow-500 hover:bg-slate-800/80 transition-all duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center group-hover:bg-yellow-500/20 transition">
+                            <i class="fas fa-chart-bar text-2xl text-yellow-400"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-yellow-400 text-xs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Power BI</h3>
+                    <p class="text-slate-400 text-sm">Visual Analytics & Dashboards</p>
+                </a>
+
+                <a href="Certificates/WebDev_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-pink-500 hover:bg-slate-800/80 transition-all duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-pink-500/10 rounded-xl flex items-center justify-center group-hover:bg-pink-500/20 transition">
+                            <i class="fas fa-code text-2xl text-pink-400"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-pink-400 text-xs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Web Development</h3>
+                    <p class="text-slate-400 text-sm">Frontend Engineering & Responsive Design</p>
+                </a>
+
+                <a href="Certificates/PM_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-cyan-500 hover:bg-slate-800/80 transition-all duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center group-hover:bg-cyan-500/20 transition">
+                            <i class="fas fa-tasks text-2xl text-cyan-400"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-cyan-400 text-xs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Project Management</h3>
+                    <p class="text-slate-400 text-sm">Agile Methodology & Team Leadership</p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-slate-900/50">
+        <div class="container mx-auto px-6">
+            <div class="glass p-12 rounded-[3rem] grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Let's build something <span class="gradient-text">meaningful</span>.</h2>
+                    <p class="text-slate-400 mb-8">Currently open to Associate Data Analyst and Python Developer roles. Feel free to reach out!</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 glass rounded-full flex items-center justify-center text-blue-400"><i class="fas fa-envelope"></i></div>
+                            <p>chandunandarapu01@gmail.com</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 glass rounded-full flex items-center justify-center text-blue-400"><i class="fab fa-whatsapp"></i></div>
+                            <p>+91 9493013084</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="https://getform.io/f/aroggxvb" method="POST" class="space-y-4">
+                    <input type="text" name="name" placeholder="Name" class="w-full p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" required>
+                    <input type="email" name="email" placeholder="Email" class="w-full p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" class="w-full p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" pattern="[0-9+ ]{10,15}" title="Please enter a valid phone number" required>
+                    <textarea name="message" rows="4" placeholder="Your Message" class="w-full p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" required></textarea>
+                    <button type="submit" class="w-full py-4 bg-blue-600 rounded-2xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-900/20">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-slate-500 text-sm">
+        <div class="flex justify-center gap-6 mb-6">
+            <a href="https://www.linkedin.com/in/nchandukrishna/" class="hover:text-white transition"><i class="fab fa-linkedin text-4xl"></i></a>
+            <a href="https://github.com/chandunandarapu" class="hover:text-white transition"><i class="fab fa-github text-5xl"></i></a>
+            <a href="https://www.instagram.com/chandu_nandarapu/" class="hover:text-pink-500 transition duration-300"><i class="fab fa-instagram text-5xl"></i></a>
+            <a href="https://x.com/Chandureddy03" class="hover:text-white transition"><i class="fab fa-twitter text-4xl"></i></a>
+        </div>
+        <p>&copy; 2025 Chandu Nandarapu. Built with Tailwind & Passion.</p>
     </footer>
 
-    <!-- SCROLL ANIMATION SCRIPT -->
-<script>
-    const header = document.getElementById("headerNav");
-    const navLinks = document.querySelectorAll(".nav-link");
-    const navLogo = document.getElementById("navLogo");
-
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-
-            // Header background turns white
-            header.classList.add("bg-white", "shadow-lg");
-            header.classList.remove("bg-transparent");
-
-            // Menu text turns dark
-            navLinks.forEach(link => {
-                link.classList.add("text-gray-800");
-                link.classList.remove("text-white");
-            });
-
-            // ⬅ THIS IS THE FIX: Make logo visible on white background
-            navLogo.classList.add("invert");
-            // invert = turn white → dark
-
-        } else {
-
-            // Header goes back to transparent
-            header.classList.remove("bg-white", "shadow-lg");
-            header.classList.add("bg-transparent");
-
-            navLinks.forEach(link => {
-                link.classList.add("text-white");
-                link.classList.remove("text-gray-800");
-            });
-
-            // ⬅ Reset logo back to white
-            navLogo.classList.remove("invert");
-        }
-    });
-</script>
-
-    <!-- TEXT ROTATION SCRIPT -->
     <script>
-        const words = ["Data Analyst", "Technical Analyst", "Python Developer"];
+      // 1. TEXT ROTATION SCRIPT
+        const words = ["Data Analyst", "Business Analyst", "Data Engineer", "Python Developer", "Web Dev"];
         let index = 0;
         const changingWord = document.getElementById("changing-word");
 
         setInterval(() => {
-            changingWord.style.opacity = 0;
+            changingWord.style.opacity = 0; // Fade out
             setTimeout(() => {
                 index = (index + 1) % words.length;
                 changingWord.textContent = words[index];
-                changingWord.style.opacity = 1;
+                changingWord.style.opacity = 1; // Fade in
             }, 300);
-        }, 2000);
-    </script>
+        }, 2500);
 
-    <!-- MOBILE MENU SCRIPT -->
-    <script>
-        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-        const mobileNavLinks = document.getElementById("mobileNavLinks");
-        const menuIcon = document.getElementById("menu-icon");
-        const closeIcon = document.getElementById("close-icon");
+       // 2. MOBILE MENU SCRIPT
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        let mobileMenuOpen = false;
-
-        mobileMenuBtn.addEventListener("click", () => {
-            mobileMenuOpen = !mobileMenuOpen;
-            mobileNavLinks.classList.toggle("hidden", !mobileMenuOpen);
-            mobileMenuBtn.setAttribute("aria-expanded", mobileMenuOpen);
-
-            if (mobileMenuOpen) {
-                menuIcon.classList.add("hidden");
-                closeIcon.classList.remove("hidden");
-            } else {
-                menuIcon.classList.remove("hidden");
-                closeIcon.classList.add("hidden");
-            }
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
         });
 
-        mobileNavLinks.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", e => {
-                e.preventDefault();
-                const targetId = link.getAttribute("href");
-                const section = document.querySelector(targetId);
-
-                if (section) {
-                    section.scrollIntoView({ behavior: "smooth", block: "start" });
-                }
-
-                mobileNavLinks.classList.add("hidden");
-                mobileMenuOpen = false;
-                mobileMenuBtn.setAttribute("aria-expanded", "false");
-                menuIcon.classList.remove("hidden");
-                closeIcon.classList.add("hidden");
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
             });
         });
-    </script>
 
+        // 3. NAVBAR SCROLL EFFECT
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('glass', 'py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('glass', 'py-2');
+                nav.classList.add('py-4');
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
