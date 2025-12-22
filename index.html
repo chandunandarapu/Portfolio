@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chandu Krishna | Portfolio</title>
-    <link rel="icon" type="image/png" href="Images/logo.png">
+    <title>Chandu Krishna | Data Analyst Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -45,41 +44,25 @@
 
     <nav class="fixed w-full z-50 transition-all duration-300 py-4" id="navbar">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex flex-col items-start">
-              <a href="#" class="block">
-                <img src="Images/logo.png" alt="Chandu Krishna Logo" class="h-10 w-auto hover:opacity-80 transition-opacity">
-              </a>
-              <span class="text-[9px] uppercase tracking-[0.25em] text-slate-400 font-medium mt-1 ml-1">
-                Explore. Innovate. Grow
-              </span>
-            </div>
+            <a href="#" class="text-2xl font-bold tracking-tighter">CK<span class="text-blue-500">.</span></a>
             
             <div class="hidden md:flex space-x-8 items-center">
-                <a href="#" class="hover:text-blue-400 transition">Home</a>
                 <a href="#about" class="hover:text-blue-400 transition">About</a>
                 <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
                 <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
-                <a href="#timeline" class="hover:text-blue-400 transition">Timeline</a>
-                <a href="blog.html" class="px-6 py-2 border border-blue-500 text-blue-400 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300">Blog & Services</a>
+                <a href="#experience" class="hover:text-blue-400 transition">Timeline</a>
                 <a href="#contact" class="px-5 py-2 bg-blue-600 rounded-full hover:bg-blue-700 transition shadow-lg">Hire Me</a>
             </div>
-            <button class="md:hidden text-2xl" id="menu-btn"><i class="fas fa-bars" id="menu-icon"></i></button>
-        </div>
-        <div class="hidden md:hidden absolute top-full left-0 w-full glass p-6 space-y-4" id="mobile-menu">
-            <a href="#" class="block mobile-link">Home</a>
-            <a href="#about" class="block mobile-link">About</a>
-            <a href="#skills" class="block mobile-link">Skills</a>
-            <a href="#projects" class="block mobile-link">Projects</a>
-            <a href="#timeline" class="block mobile-link">Timeline</a>
-            <a href="#contact" class="block w-full py-3 bg-blue-600 rounded-xl text-center mobile-link">Hire Me</a>
         </div>
     </nav>
 
-    <section id="home" class="min-h-screen flex items-center relative pt-20">
+    <section class="min-h-screen flex items-center relative overflow-hidden pt-20">
         <div class="hero-blob top-20 left-10"></div>
+        <div class="hero-blob bottom-20 right-10"></div>
+
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1">
-                <h2 class="text-blue-400 font-semibold mb-2">Aspiring <span id="changing-word" class="text-white">Data Analyst</span></h2>
+                <h2 class="text-blue-400 font-semibold mb-2">Aspiring Data Specialist</h2>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                     Chandu <span class="gradient-text">Krishna</span>
                 </h1>
@@ -95,128 +78,30 @@
             <div class="order-1 md:order-2 flex justify-center">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                    <img src="Images/profile.png" class="relative rounded-2xl w-80 md:w-96 grayscale hover:grayscale-0 transition duration-500 shadow-2xl" alt="Chandu Krishna">
+                    <img src="Images/Portfolio-profile.png" class="relative rounded-2xl w-80 md:w-96 grayscale hover:grayscale-0 transition duration-500 shadow-2xl" alt="Chandu Krishna">
                 </div>
             </div>
         </div>
     </section>
 
-     <div class="container mx-auto px-6 py-10">
+    <div class="container mx-auto px-6 py-10">
         <div class="glass p-8 rounded-3xl flex flex-wrap justify-around gap-8 text-center">
             <div>
                 <h3 class="text-3xl font-bold">10+</h3>
                 <p class="text-slate-400 text-sm">Projects Completed</p>
             </div>
-            <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
+            <div class="w-px h-12 bg-slate-700 hidden md:block"></div>
             <div>
                 <h3 class="text-3xl font-bold">Python</h3>
                 <p class="text-slate-400 text-sm">Core Language</p>
             </div>
-             <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
+            <div class="w-px h-12 bg-slate-700 hidden md:block"></div>
             <div>
-                <h3 class="text-3xl font-bold">SQL | Excel</h3>
-                <p class="text-slate-400 text-sm">Core Analytics Skills</p>
-            </div>
-            <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
-            <div>
-                <h3 class="text-3xl font-bold">BI Tools</h3>
-                <p class="text-slate-400 text-sm">Power BI & Tableau</p>
-            </div>
-            <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
-            <div>
-                <h3 class="text-3xl font-bold">Web Dev</h3>
-                <p class="text-slate-400 text-sm">Portfolio & Websites Dev.</p>
+                <h3 class="text-3xl font-bold">Data</h3>
+                <p class="text-slate-400 text-sm">Visualization Expert</p>
             </div>
         </div>
     </div>
-
-    <section id="about" class="py-24 relative overflow-hidden">
-        <div class="hero-blob top-0 right-0 opacity-50"></div>
-        
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">
-                <span class="text-blue-500">About</span> Me
-            </h2>
-
-            <div class="grid lg:grid-cols-2 gap-16 items-start">
-                
-                <div class="space-y-8">
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition"></div>
-                        <img src="Images/Portfolio-about.png" class="relative rounded-3xl w-full object-cover shadow-2xl border border-slate-700/50" alt="About Chandu">
-                    </div>
-
-                    <div class="glass p-8 rounded-[2rem] border-l-4 border-l-blue-500">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="relative flex h-3 w-3">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-                            </span>
-                            <h3 class="text-xl font-bold uppercase tracking-wider text-blue-400">Currently</h3>
-                        </div>
-                        <p class="text-slate-300 leading-relaxed mb-6">
-                            Seeking Data Analyst, Business Analyst, or Python Developer roles to apply my data cleaning, analysis, visualization, and problem-solving to support business decision-making.
-                        </p>
-                        <div class="flex gap-4">
-                            <a href="#contact" class="text-sm font-semibold text-white bg-blue-600/20 px-4 py-2 rounded-full border border-blue-600/30 hover:bg-blue-600 transition">Get in touch</a>
-                            <a href="#projects" class="text-sm font-semibold text-slate-400 px-4 py-2 rounded-full hover:text-white transition">See projects →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="space-y-12">
-                    <div class="glass p-8 rounded-[2rem]">
-                        <p class="text-lg text-slate-300 leading-relaxed">
-                            I'm an aspiring <span class="text-white font-semibold">Data Analyst</span> skilled in Python, SQL, Excel, Power BI, and Data Visualization. I have experience working on end-to-end analytics projects including sales analysis, booking insights, and dashboard development. 
-                        </p>
-                        <p class="text-lg text-slate-300 mt-4 leading-relaxed">
-                            I've completed virtual analytics programs with <span class="text-blue-400">TATA</span> and <span class="text-purple-400">Deloitte</span>, where I practiced EDA, reporting, and business case problem-solving. I'm currently looking for Data Analyst and Python Developer roles to apply my skills and grow professionally.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                            <i class="fas fa-graduation-cap text-blue-500"></i> Education
-                        </h3>
-                        <div class="space-y-6">
-                            <div class="relative pl-8 border-l-2 border-slate-700 hover:border-blue-500 transition-colors group">
-                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-800 border-2 border-slate-700 group-hover:bg-blue-500 group-hover:border-blue-500 transition"></div>
-                                <h4 class="text-white font-bold text-lg">Bachelor of Technology</h4>
-                                <p class="text-slate-400 text-sm">Saveetha Institute of Medical and Technical Sciences, Chennai</p>
-                                <span class="inline-block mt-2 px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded-lg border border-blue-500/20">CGPA: 8.27/10</span>
-                            </div>
-
-                            <div class="relative pl-8 border-l-2 border-slate-700 hover:border-blue-500 transition-colors group">
-                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-800 border-2 border-slate-700 group-hover:bg-blue-500 group-hover:border-blue-500 transition"></div>
-                                <h4 class="text-white font-bold text-lg">Intermediate</h4>
-                                <p class="text-slate-400 text-sm">Sri Chaitanya Junior College, Tirupati</p>
-                                <span class="inline-block mt-2 px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded-lg border border-blue-500/20">CGPA: 9.32/10</span>
-                            </div>
-
-                            <div class="relative pl-8 border-l-2 border-slate-700 hover:border-blue-500 transition-colors group">
-                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-800 border-2 border-slate-700 group-hover:bg-blue-500 group-hover:border-blue-500 transition"></div>
-                                <h4 class="text-white font-bold text-lg">SSC</h4>
-                                <p class="text-slate-400 text-sm">Zilla Parishad High School, Srirangarajapuram</p>
-                                <span class="inline-block mt-2 px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded-lg border border-blue-500/20">CGPA: 9.5/10</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                            <i class="fas fa-language text-purple-500"></i> Languages
-                        </h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="glass px-5 py-2 rounded-xl text-sm font-medium hover:bg-white hover:text-black transition cursor-default">English</span>
-                            <span class="glass px-5 py-2 rounded-xl text-sm font-medium hover:bg-white hover:text-black transition cursor-default">Telugu</span>
-                            <span class="glass px-5 py-2 rounded-xl text-sm font-medium hover:bg-white hover:text-black transition cursor-default">Tamil</span>
-                            <span class="glass px-5 py-2 rounded-xl text-sm font-medium hover:bg-white hover:text-black transition cursor-default">Kannada</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section id="skills" class="py-24 bg-slate-900/50">
         <div class="container mx-auto px-6 text-center">
@@ -237,7 +122,7 @@
                 </div>
                 <div class="glass p-6 rounded-2xl hover:border-blue-500 transition group">
                     <i class="fas fa-file-excel text-4xl mb-4 group-hover:scale-110 transition"></i>
-                    <p class="font-semibold">Excel</p>
+                    <p class="font-semibold">Adv. Excel</p>
                 </div>
                 <div class="glass p-6 rounded-2xl hover:border-blue-500 transition group">
                     <i class="fas fa-code text-4xl mb-4 group-hover:scale-110 transition"></i>
@@ -246,7 +131,6 @@
             </div>
         </div>
     </section>
-
 
     <section id="projects" class="py-24">
         <div class="container mx-auto px-6">
@@ -301,181 +185,6 @@
         </div>
     </section>
 
-    <section id="timeline" class="py-24 bg-slate-900/30 relative">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-bold mb-4">Professional <span class="text-blue-500">Journey</span> & Experience</h2>
-                <p class="text-slate-400">Validated expertise through industry simulations and academic milestones.</p>
-            </div>
-
-            <div class="flex justify-center mb-12">
-                <div class="glass px-6 py-3 rounded-full border border-blue-500/30 flex items-center gap-3 animate-bounce">
-                    <span class="relative flex h-3 w-3">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                    </span>
-                    <span class="text-sm font-bold tracking-wide text-blue-100">OPEN TO WORK: SEEKING FULL-TIME JOB ROLES</span>
-                </div>
-            </div>
-            
-            <div class="max-w-5xl mx-auto relative">
-                <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent opacity-30"></div>
-
-                <div class="mb-16 relative flex flex-col md:flex-row items-center group">
-                    <div class="hidden md:block md:w-1/2"></div>
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-10 h-10 glass rounded-full flex items-center justify-center z-10 border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-                        <i class="fas fa-certificate text-blue-400 text-sm"></i>
-                    </div>
-                    <div class="md:w-1/2 pl-12 md:pl-16">
-                        <div class="glass p-8 rounded-3xl border border-transparent hover:border-blue-500 transition-all duration-500 group-hover:-translate-y-2">
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-blue-400 font-bold text-xs tracking-widest uppercase">Aug 2025</span>
-                                <span class="bg-blue-500/20 text-blue-400 text-[10px] px-2 py-1 rounded-md border border-blue-500/30">VERIFIED</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white">Tata Group Data Analytics</h3>
-                            <p class="text-blue-200/70 font-medium mb-4 italic">Forage Job Simulation</p>
-                            <ul class="space-y-2 text-slate-400 text-sm mb-6">
-                                <li class="flex items-start gap-2">
-                                    <i class="fas fa-check-circle text-blue-500 mt-1"></i>
-                                    <span>Mastered EDA and Data Visualization for TATA iQ.</span>
-                                </li>
-                            </ul>
-                            <a href="Certificates/Tata_Certificate.pdf" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                                <i class="fas fa-external-link-alt"></i> VIEW CERTIFICATE
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-16 relative flex flex-col md:flex-row items-center group">
-                    <div class="md:w-1/2 pr-0 md:pr-16 order-2 md:order-1 pl-12 md:pl-0">
-                        <div class="glass p-8 rounded-3xl border border-transparent hover:border-purple-500 transition-all duration-500 group-hover:-translate-y-2 md:text-right">
-                            <div class="flex md:flex-row-reverse justify-between items-start mb-2">
-                                <span class="text-purple-400 font-bold text-xs tracking-widest uppercase">Apr 2025</span>
-                                <span class="bg-purple-500/20 text-purple-400 text-[10px] px-2 py-1 rounded-md border border-purple-500/30">COMPLETED</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white">Deloitte STEM Analytics</h3>
-                            <p class="text-purple-200/70 font-medium mb-4 italic">Forensic & Data Analytics</p>
-                            <ul class="space-y-2 text-slate-400 text-sm mb-6 md:flex md:flex-col md:items-end">
-                                <li class="flex items-start gap-2 md:flex-row-reverse">
-                                    <i class="fas fa-check-circle text-purple-500 mt-1"></i>
-                                    <span>Validated skills in Tableau and Forensic discovery.</span>
-                                </li>
-                            </ul>
-                            <a href="Certificates/Deloitte_Certificate.pdf" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-700 transition">
-                                <i class="fas fa-external-link-alt"></i> VIEW CERTIFICATE
-                            </a>
-                        </div>
-                    </div>
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-10 h-10 glass rounded-full flex items-center justify-center z-10 border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.5)] order-1 md:order-2">
-                        <i class="fas fa-award text-purple-400 text-sm"></i>
-                    </div>
-                    <div class="hidden md:block md:w-1/2 order-3"></div>
-                </div>
-
-                <div class="mb-16 relative flex flex-col md:flex-row items-center group">
-                    <div class="hidden md:block md:w-1/2"></div>
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-10 h-10 glass rounded-full flex items-center justify-center z-10 border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-                        <i class="fas fa-laptop-code text-blue-400 text-sm"></i>
-                    </div>
-                    <div class="md:w-1/2 pl-12 md:pl-16">
-                        <div class="glass p-8 rounded-3xl border border-transparent hover:border-blue-500 transition-all duration-500 group-hover:-translate-y-2">
-                            <span class="text-blue-400 font-bold text-xs tracking-widest uppercase">Apr 2021</span>
-                            <h3 class="text-2xl font-bold mt-2 text-white">Web Development Intern</h3>
-                            <p class="text-blue-200/70 font-medium mb-4 italic">Trix Education (Internship)</p>
-                            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
-                                Gained hands-on experience in building scalable front-end components.
-                            </p>
-                            <a href="Certificates/Trix_Internship.pdf" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-blue-600/20 border border-blue-500/30 px-4 py-2 rounded-lg hover:bg-blue-600 transition">
-                                <i class="fas fa-file-pdf"></i> INTERN LETTER
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="certifications" class="py-24 bg-slate-900/50 relative">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Core <span class="text-blue-500">Certifications</span></h2>
-                <p class="text-slate-400">Click on any skill to verify my professional credentials and expertise.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                
-                <a href="Certificates/Python_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-blue-500 hover:bg-slate-800/80 transition-all duration-300 group">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center group-hover:bg-blue-500/20 transition">
-                            <i class="fab fa-python text-2xl text-blue-400"></i>
-                        </div>
-                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-blue-400 text-xs"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-1">Python</h3>
-                    <p class="text-slate-400 text-sm">Programming & Data Structures</p>
-                </a>
-
-                <a href="Certificates/SQL_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-blue-500 hover:bg-slate-800/80 transition-all duration-300 group">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center group-hover:bg-purple-500/20 transition">
-                            <i class="fas fa-database text-2xl text-purple-400"></i>
-                        </div>
-                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-purple-400 text-xs"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-1">SQL / MySQL</h3>
-                    <p class="text-slate-400 text-sm">Database Management & Querying</p>
-                </a>
-
-                <a href="Certificates/Excel_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-green-500 hover:bg-slate-800/80 transition-all duration-300 group">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center group-hover:bg-green-500/20 transition">
-                            <i class="fas fa-file-excel text-2xl text-green-400"></i>
-                        </div>
-                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-green-400 text-xs"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-1">Excel</h3>
-                    <p class="text-slate-400 text-sm">Data Analysis & Pivot Tables</p>
-                </a>
-
-                <a href="Certificates/PowerBI_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-yellow-500 hover:bg-slate-800/80 transition-all duration-300 group">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center group-hover:bg-yellow-500/20 transition">
-                            <i class="fas fa-chart-bar text-2xl text-yellow-400"></i>
-                        </div>
-                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-yellow-400 text-xs"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-1">Power BI</h3>
-                    <p class="text-slate-400 text-sm">Visual Analytics & Dashboards</p>
-                </a>
-
-                <a href="Certificates/WebDev_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-pink-500 hover:bg-slate-800/80 transition-all duration-300 group">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-pink-500/10 rounded-xl flex items-center justify-center group-hover:bg-pink-500/20 transition">
-                            <i class="fas fa-code text-2xl text-pink-400"></i>
-                        </div>
-                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-pink-400 text-xs"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-1">Web Development</h3>
-                    <p class="text-slate-400 text-sm">Frontend Engineering & Responsive Design</p>
-                </a>
-
-                <a href="Certificates/PM_Cert.pdf" target="_blank" class="glass p-6 rounded-2xl border border-transparent hover:border-cyan-500 hover:bg-slate-800/80 transition-all duration-300 group">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center group-hover:bg-cyan-500/20 transition">
-                            <i class="fas fa-tasks text-2xl text-cyan-400"></i>
-                        </div>
-                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-cyan-400 text-xs"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-1">Project Management</h3>
-                    <p class="text-slate-400 text-sm">Agile Methodology & Team Leadership</p>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
     <section id="contact" class="py-24 bg-slate-900/50">
         <div class="container mx-auto px-6">
             <div class="glass p-12 rounded-[3rem] grid md:grid-cols-2 gap-16 items-center">
@@ -498,7 +207,6 @@
                 <form action="https://getform.io/f/aroggxvb" method="POST" class="space-y-4">
                     <input type="text" name="name" placeholder="Name" class="w-full p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" required>
                     <input type="email" name="email" placeholder="Email" class="w-full p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" required>
-                    <input type="tel" name="phone" placeholder="Phone Number" class="w-full p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" pattern="[0-9+ ]{10,15}" title="Please enter a valid phone number" required>
                     <textarea name="message" rows="4" placeholder="Your Message" class="w-full p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" required></textarea>
                     <button type="submit" class="w-full py-4 bg-blue-600 rounded-2xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-900/20">Send Message</button>
                 </form>
@@ -508,50 +216,15 @@
 
     <footer class="py-12 text-center text-slate-500 text-sm">
         <div class="flex justify-center gap-6 mb-6">
-            <a href="https://www.linkedin.com/in/nchandukrishna/" class="hover:text-white transition"><i class="fab fa-linkedin text-4xl"></i></a>
-            <a href="https://github.com/chandunandarapu" class="hover:text-white transition"><i class="fab fa-github text-5xl"></i></a>
-            <a href="https://www.instagram.com/chandu_nandarapu/" class="hover:text-pink-500 transition duration-300"><i class="fab fa-instagram text-5xl"></i></a>
-            <a href="https://x.com/Chandureddy03" class="hover:text-white transition"><i class="fab fa-twitter text-4xl"></i></a>
+            <a href="https://www.linkedin.com/in/nchandukrishna/" class="hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+            <a href="https://github.com/chandunandarapu" class="hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+            <a href="https://x.com/Chandureddy03" class="hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
         </div>
-        <p>&copy; 2025 Chandu Nandarapu. Built with Tailwind & Passion.</p>
+        <p>&copy; 2025 Chandu Krishna Nandarapi. Built with Tailwind & Passion.</p>
     </footer>
 
     <script>
-      // 1. TEXT ROTATION SCRIPT
-        const words = ["Data Analyst", "Business Analyst", "Data Engineer", "Python Developer", "Web Dev"];
-        let index = 0;
-        const changingWord = document.getElementById("changing-word");
-
-        setInterval(() => {
-            changingWord.style.opacity = 0; // Fade out
-            setTimeout(() => {
-                index = (index + 1) % words.length;
-                changingWord.textContent = words[index];
-                changingWord.style.opacity = 1; // Fade in
-            }, 300);
-        }, 2500);
-
-       // 2. MOBILE MENU SCRIPT
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.classList.toggle('fa-bars');
-            menuIcon.classList.toggle('fa-times');
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.add('fa-bars');
-                menuIcon.classList.remove('fa-times');
-            });
-        });
-
-        // 3. NAVBAR SCROLL EFFECT
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
