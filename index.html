@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandu Krishna | Portfolio</title>
+    <link rel="icon" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .heading-font1 {
+            font-family: 'Syncopate', sans-serif;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .heading-font1 {
+            font-family: 'Syncopate', sans-serif;
+        }
+
+
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #60a5fa, #a855f7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-blob {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.2) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(40px);
+        }
+
+        /* Home Section animation */
+        /* Smooth entrance */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease;
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Profile floating animation */
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Glow pulse */
+        .glow-pulse {
+            animation: glow 4s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Social icons stagger */
+        .social a {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        .social.show a {
+            animation: socialIn 0.6s ease forwards;
+        }
+
+        .social.show a:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .social.show a:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .social.show a:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .social.show a:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes socialIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /*Showcase skills Bar Box animation */
+        .stat-item {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s ease;
+        }
+
+        .stat-item.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delay helpers */
+        .delay-1 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.4s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.6s;
+        }
+
+        /* Language item animation */
+        .lang-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+
+        .lang-item.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Skill box base animation */
+        .skill-box {
+            opacity: 0;
+            transition: all 0.9s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        /* Directions */
+        .from-left {
+            transform: translateX(-80px);
+        }
+
+        .from-top {
+            transform: translateY(-80px);
+        }
+
+        .from-bottom {
+            transform: translateY(80px);
+        }
+
+        .from-right {
+            transform: translateX(80px);
+        }
+
+        .from-scale {
+            transform: scale(0.7);
+        }
+
+        .skill-box.show {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* Extra hover magic */
+        .skill-box:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
+        }
+
+        .skill-box {
+            min-height: 180px;
+            /* Fix the height to match Excel box */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            /* Uniform padding */
+            box-sizing: border-box;
+            text-align: center;
+            width: 100%;
+            /* Full width of the grid column */
+        }
+
+        .skill-box i {
+            font-size: 3rem;
+            /* Slightly smaller icon, consistent */
+            margin-bottom: 0.75rem;
+            /* Uniform spacing below icons */
+        }
+
+        .skill-box p {
+            margin: 0;
+        }
+
+        .skill-box p.font-semibold {
+            font-size: 1.125rem;
+            /* 18px */
+        }
+
+        .skill-box p.text-xs {
+            margin-top: 0.25rem;
+            font-size: 0.75rem;
+            /* 12px */
+            color: #94a3b8;
+            /* Tailwind slate-400 color */
+        }
+
+
+        /* Project reveal animation */
+        .project-card {
+            opacity: 0;
+            transform: translateY(60px) scale(0.95);
+            transition: all 0.9s ease;
+        }
+
+        .project-card.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Icon pulse animation */
+        .icon-float {
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Image glow on hover */
+        .project-image {
+            transition: all 0.6s ease;
+        }
+
+        .project-image:hover {
+            filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.5));
+            transform: scale(1.05);
+        }
+
+        /* Base */
+        .project-card {
+            opacity: 0;
+            transition: all 0.9s ease;
+        }
+
+        /* Directions */
+        .from-left {
+            transform: translateX(-80px);
+        }
+
+        .from-right {
+            transform: translateX(80px);
+        }
+
+        .from-bottom {
+            transform: translateY(80px);
+        }
+
+        .from-top {
+            transform: translateY(-80px);
+        }
+
+        /* When visible */
+        .project-card.show {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+
+
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #60a5fa;
+        }
+
+        .footer-social i {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .footer-social:hover i {
+            transform: translateY(-3px);
+            color: #3b82f6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="fixed w-full z-50 transition-all duration-300 py-4" id="navbar">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="Images/logo.png" alt="Chandu Krishna Logo" class="h-11 md:h-11 w-auto object-contain
+           transition duration-300
+           group-hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
+            </a>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button id="menu-btn" class="md:hidden text-white text-2xl z-50">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- MOBILE MENU OVERLAY -->
+            <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-black/50 md:hidden z-40 transition-opacity duration-300"></div>
+
+            <!-- MOBILE MENU -->
+            <div id="mobile-menu" class="hidden fixed top-0 right-0 h-screen w-64 bg-gradient-to-b from-slate-900 to-black border-l border-white/10 md:hidden z-50 transform transition-transform duration-300 translate-x-full overflow-y-auto">
+                <!-- Close Button -->
+                <button id="menu-close-btn" class="absolute top-6 right-6 text-white text-2xl hover:text-blue-400 transition z-50">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <!-- Menu Links -->
+                <nav class="pt-20 px-6 space-y-1">
+                    <a href="#home" class="block px-4 py-3 text-slate-300 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition">Home</a>
+                    <a href="#about" class="block px-4 py-3 text-slate-300 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition">About</a>
+                    <a href="#skills" class="block px-4 py-3 text-slate-300 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition">Skills</a>
+                    <a href="#projects" class="block px-4 py-3 text-slate-300 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition">Projects</a>
+                    <a href="#timeline" class="block px-4 py-3 text-slate-300 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition">Timeline</a>
+                    <div class="border-t border-white/10 my-3"></div>
+                    <a href="blog.html" class="block px-4 py-3 text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 rounded-lg transition font-semibold">Blog & Services</a>
+                    <a href="#contact" class="block px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold text-center">Hire Me</a>
+                </nav>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-7 items-center nav-font">
+                <a href="#home" class="text-base font-medium text-slate-300 hover:text-blue-400 transition">Home</a>
+                <a href="#about" class="text-base font-medium text-slate-300 hover:text-blue-400 transition">About</a>
+                <a href="#skills" class="text-base font-medium text-slate-300 hover:text-blue-400 transition">Skills</a>
+                <a href="#projects" class="text-base font-medium text-slate-300 hover:text-blue-400 transition">Projects</a>
+                <a href="#timeline" class="text-base font-medium text-slate-300 hover:text-blue-400 transition">Timeline</a>
+                <a href="blog.html" class="relative px-6 py-2 text-sm font-semibold border border-blue-500 text-blue-400 rounded-full transition-all duration-300 hover:text-white hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-600/40">Blog & Services</a>
+                <a href="#contact" class="px-5 py-2 text-sm font-semibold bg-blue-600 rounded-full hover:bg-blue-700 transition shadow-lg">Hire Me</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center relative overflow-hidden pt-16 sm:pt-20 md:pt-24">
+        <div class="hero-blob top-20 left-10"></div>
+        <div class="hero-blob bottom-20 right-10"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
+
+            <div class="order-2 md:order-1">
+                <h2 class="font-semibold mb-2 fade-up">
+                    <span class="text-blue-400 text-base sm:text-xl md:text-2xl">Aspiring</span>
+                    <span id="role" class="text-blue-300 text-sm sm:text-base md:text-lg">Full Stack Web Developer</span>
+                </h2>
+
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight fade-up">
+                    Chandu <span class="gradient-text">Krishna</span>
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl text-slate-400 mb-6 sm:mb-8 max-w-lg leading-relaxed fade-up">
+                    Building modern websites, scalable web applications, and data dashboards.
+                    From development to deployment, I create digital solutions that help businesses grow and make
+                    data-driven decisions.
+                </p>
+                <div class="flex gap-3 sm:gap-4 fade-up flex-wrap">
+                    <a href="Resume/chandukrishna_resume.pdf"
+                        class="px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base glass rounded-xl hover:bg-white hover:text-black transition">Download CV</a>
+                    <a href="#projects" class="px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base bg-blue-600 rounded-xl hover:bg-blue-700 transition">View Work</a>
+                </div>
+                <div class="flex justify-center md:justify-start items-center gap-4 sm:gap-5 md:gap-6 mt-4 sm:mt-6 social">
+
+                    <a href="mailto:chandunandarapu01@gmail.com"
+                        class="text-slate-400 hover:text-blue-400 transition text-2xl sm:text-3xl md:text-4xl">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                    <a href="https://instagram.com/chandu_nandarapu" target="_blank"
+                        class="text-slate-400 hover:text-blue-400 transition text-2xl sm:text-3xl md:text-4xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="https://linkedin.com/in/chandunandarapu" target="_blank"
+                        class="text-slate-400 hover:text-blue-400 transition text-2xl sm:text-3xl md:text-4xl">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="https://github.com/chandunandarapu" target="_blank"
+                        class="text-slate-400 hover:text-blue-400 transition text-2xl sm:text-3xl md:text-4xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="order-1 md:order-2 flex justify-center items-center relative">
+
+
+                <!-- Glow background -->
+                <div class="absolute bottom-10 right-1/2 translate-x-1/2
+                            w-[240px] h-[240px] sm:w-[320px] sm:h-[320px] md:w-[420px] md:h-[420px]
+                            bg-gradient-to-tr from-blue-500/30 to-purple-600/30
+                            rounded-full blur-3xl opacity-80 glow-pulse">
+                </div>
+
+                <!-- Image -->
+                <img src="Images/Home_Profile.png" alt="Chandu Krishna" class="relative 
+                            max-h-[350px] sm:max-h-[520px] md:max-h-[600px] lg:max-h-[650px]
+                            w-full object-contain
+                            mx-auto
+                            drop-shadow-[0_40px_80px_rgba(0,0,0,0.45)]
+                            transition-all duration-500
+                            hover:scale-[1.04]" />
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-10" id="skills-showcase">
+        <div
+            class="glass p-4 sm:p-6 md:p-8 rounded-3xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:flex lg:flex-wrap lg:justify-around gap-4 sm:gap-6 text-center">
+
+            <div class="stat-item">
+                <h3 class="text-2xl sm:text-3xl font-bold">5+</h3>
+                <p class="text-slate-400 text-xs sm:text-sm">Projects Delivered</p>
+            </div>
+
+            <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
+
+            <div class="stat-item">
+                <h3 class="text-2xl sm:text-3xl font-bold">Web Dev</h3>
+                <p class="text-slate-400 text-xs sm:text-sm">React & Django</p>
+            </div>
+
+            <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
+
+            <div class="stat-item">
+                <h3 class="text-2xl sm:text-3xl font-bold">Python</h3>
+                <p class="text-slate-400 text-xs sm:text-sm">Backend Systems</p>
+            </div>
+
+            <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
+
+            <div class="stat-item">
+                <h3 class="text-2xl sm:text-3xl font-bold">Interactive UI</h3>
+                <p class="text-slate-400 text-xs sm:text-sm">HTML & CSS</p>
+            </div>
+
+            <div class="w-px h-12 bg-slate-700 hidden lg:block"></div>
+
+            <div class="stat-item">
+                <h3 class="text-2xl sm:text-3xl font-bold">Database</h3>
+                <p class="text-slate-400 text-xs sm:text-sm">SQL & PostgreSQL</p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <section id="about" class="relative py-16 sm:py-20 md:py-28 overflow-hidden bg-cover bg-center"
+        style="background-image: url('Images/about.jpg');">
+        <!-- Dark overlay for readability -->
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
+
+        <div class="relative container mx-auto px-4 sm:px-6">
+            <!-- Section Title -->
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-20 reveal">
+                <span class="text-blue-500">About</span> Me
+            </h2>
+
+            <!-- TOP ROW (Reversed Boxes) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start mb-12 sm:mb-16">
+
+                <!-- LEFT: About Description -->
+                <div class="glass p-6 sm:p-8 rounded-[2rem] reveal">
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+                        I’m a <span class="text-blue-400 font-semibold">Web Developer</span> focused on building modern
+                        websites, web applications, and data-driven solutions. I work with technologies like <span
+                            class="text-blue-300 font-semibold">Python, SQL</span> and web tools such as <span
+                            class="text-purple-300 font-semibold">HTML, CSS, and JavaScript</span> to create responsive
+                        and functional applications.
+                    </p>
+
+                    <p class="text-lg text-slate-300 mt-4 leading-relaxed">
+                        I have already developed and delivered websites and web applications based on client and project
+                        requirements. Along with web development, I also build <span
+                            class="text-blue-400 font-semibold">data dashboards and analytics solutions</span> using
+                        tools like Excel and Power BI to transform raw data into meaningful insights.
+                    </p>
+
+                    <p class="text-base sm:text-lg text-slate-300 mt-4 leading-relaxed">
+                        I enjoy turning ideas into real applications and continuously improving my skills by building
+                        practical projects, exploring new technologies, and creating solutions that solve real-world
+                        problems.
+                    </p>
+                </div>
+
+
+                <!-- RIGHT: Currently Box -->
+                <div class="glass p-6 sm:p-8 rounded-[2rem] border-l-4 border-blue-500 reveal delay-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="relative flex h-3 w-3">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                        </span>
+                        <h3 class="text-lg sm:text-xl font-bold uppercase tracking-wider text-blue-400">
+                            Currently
+                        </h3>
+                    </div>
+
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+                        Currently, I focus on improving my skills in web development, backend systems, and data
+                        engineering while working on practical projects. I build dynamic and static websites, develop
+                        web applications, and take on freelance work based on client requirements.
+                    </p>
+
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+                        I have also supported real-time projects by assisting with Python development and data workflows
+                        that help teams manage and process data efficiently.
+                    </p>
+
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+                        I continuously learn new technologies and improve my development practices by building scalable
+                        applications and data-driven solutions.
+                    </p>
+                    <div class="flex gap-2 sm:gap-4 flex-wrap">
+                        <a href="#contact"
+                            class="text-xs sm:text-sm font-semibold text-white bg-blue-600/20 px-3 sm:px-4 py-2 rounded-full border border-blue-600/30 hover:bg-blue-600 transition">
+                            Get in touch
+                        </a>
+                        <a href="#projects"
+                            class="text-xs sm:text-sm font-semibold text-slate-400 px-3 sm:px-4 py-2 rounded-full hover:text-white transition">
+                            See projects →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mt-12 sm:mt-16">
+
+                <!-- LEFT: Education -->
+                <div class="reveal delay-2">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-6 flex items-center gap-3 flex-wrap">
+                        <i class="fas fa-graduation-cap text-blue-500"></i> Education
+                    </h3>
+                    <div class="space-y-6">
+                        <div
+                            class="relative pl-8 border-l-2 border-slate-700 hover:border-blue-500 transition-colors group">
+                            <div
+                                class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-800 border-2 border-slate-700 group-hover:bg-blue-500 group-hover:border-blue-500 transition">
+                            </div>
+                            <h4 class="text-white font-bold text-base sm:text-lg">Bachelor of Technology</h4>
+                            <p class="text-slate-400 text-xs sm:text-sm">Saveetha Institute of Medical and Technical Sciences,
+                                Chennai</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Languages -->
+                <div class="reveal delay-3">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-6 flex items-center gap-3 flex-wrap">
+                        <i class="fas fa-language text-purple-500"></i> Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <span
+                            class="glass px-3 sm:px-5 py-1 sm:py-2 rounded-xl text-xs sm:text-sm font-medium hover:bg-white hover:text-black transition cursor-default">English</span>
+                        <span
+                            class="glass px-3 sm:px-5 py-1 sm:py-2 rounded-xl text-xs sm:text-sm font-medium hover:bg-white hover:text-black transition cursor-default">Telugu</span>
+                        <span
+                            class="glass px-3 sm:px-5 py-1 sm:py-2 rounded-xl text-xs sm:text-sm font-medium hover:bg-white hover:text-black transition cursor-default">Tamil</span>
+                        <span
+                            class="glass px-3 sm:px-5 py-1 sm:py-2 rounded-xl text-xs sm:text-sm font-medium hover:bg-white hover:text-black transition cursor-default">Kannada</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="skills" class="py-16 sm:py-20 md:py-24 bg-slate-900/50">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-12 sm:mb-16 underline decoration-blue-500 underline-offset-8">
+                Technical Stack
+            </h2>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+
+                <!-- 1 -->
+                <a href="Certificates/Python_Certificate.pdf" target="_blank" class="block">
+                    <div class="glass p-4 sm:p-6 rounded-2xl skill-box from-left">
+                        <i class="fab fa-python text-3xl sm:text-4xl mb-3 text-yellow-400"></i>
+                        <p class="font-semibold text-sm sm:text-lg">Python</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            Backend • Data • Automation
+                        </p>
+                    </div>
+                </a>
+
+
+                <!-- SQL / MySQL -->
+                <a href="https://www.hackerrank.com/certificates/iframe/14ac7eb6337b" target="_blank" class="block">
+                    <div class="glass p-4 sm:p-6 rounded-2xl skill-box from-top">
+                        <i class="fas fa-database text-3xl sm:text-4xl mb-3 text-blue-400"></i>
+                        <p class="font-semibold text-sm sm:text-lg">SQL / PostgreSQL</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            Database • Queries • Optimization
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Web Development -->
+                <a href="Certificates/Web Developement Internship.pdf" target="_blank" class="block">
+                    <div class="glass p-4 sm:p-6 rounded-2xl skill-box from-left">
+                        <i class="fas fa-code text-3xl sm:text-4xl mb-3 text-purple-400"></i>
+                        <p class="font-semibold text-sm sm:text-lg">Web Dev</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            HTML • CSS • React
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Backend & APIs -->
+                <a target="_blank" class="block">
+                    <div class="glass p-4 sm:p-6 rounded-2xl skill-box from-bottom">
+                        <i class="fas fa-chart-pie text-3xl sm:text-4xl mb-3 text-yellow-400"></i>
+                        <p class="font-semibold text-sm sm:text-lg">Backend</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            APIs • Django • Flask
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Data Visualization -->
+                <a href="Certificates/Power BI.pdf" target="_blank" class="block">
+                    <div class="glass p-4 sm:p-6 rounded-2xl skill-box from-right">
+                        <i class="fas fa-file-excel text-3xl sm:text-4xl mb-3 text-green-400"></i>
+                        <p class="font-semibold text-sm sm:text-lg">Data Viz</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            Power BI • Excel
+                        </p>
+                    </div>
+                </a>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 sm:py-20 md:py-24">
+        <div class="container mx-auto px-4 sm:px-6">
+
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-12 gap-4 project-card">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold">
+                        Featured <span class="text-blue-500">Projects</span>
+                    </h2>
+                    <p class="text-slate-400 mt-2 text-sm sm:text-base">
+                        Web development and data analytics projects.
+                    </p>
+                </div>
+
+                <a href="https://github.com/chandunandarapu"
+                    class="text-blue-400 hover:text-blue-300 flex items-center gap-2 text-sm sm:text-base">
+                    All Projects <i class="fas fa-arrow-right text-sm"></i>
+                </a>
+            </div>
+
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
+
+                <!-- MAIN PROJECT -->
+                <div class="glass rounded-3xl overflow-hidden group project-card from-bottom">
+
+                    <!-- IMAGE -->
+                    <div class="w-full">
+                        <img src="Images/tanva_designs_project.png" class="w-full h-[250px] sm:h-[360px] object-contain bg-black"
+                            alt="Tanva Designs Website">
+                    </div>
+
+                    <!-- CONTENT -->
+                    <div class="p-4 sm:p-8">
+
+                        <!-- TECH STACK -->
+                        <div class="flex flex-wrap gap-1 sm:gap-2 mb-4">
+
+                            <span class="text-xs font-bold px-2 sm:px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full">
+                                HTML
+                            </span>
+
+                            <span class="text-xs font-bold px-2 sm:px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full">
+                                CSS
+                            </span>
+
+                            <span class="text-xs font-bold px-2 sm:px-3 py-1 bg-indigo-600/20 text-indigo-400 rounded-full">
+                                JS
+                            </span>
+
+                            <span class="text-xs font-bold px-2 sm:px-3 py-1 bg-green-600/20 text-green-400 rounded-full">
+                                SMTP
+                            </span>
+
+                            <span class="text-xs font-bold px-2 sm:px-3 py-1 bg-yellow-600/20 text-yellow-400 rounded-full">
+                                Google Sheets
+                            </span>
+
+                        </div>
+
+                        <!-- TITLE -->
+                        <h3 class="text-xl sm:text-2xl font-bold mb-3">
+                            Tanva Interior Designs Website
+                        </h3>
+
+                        <!-- DESCRIPTION -->
+                        <p class="text-slate-400 mb-6 text-sm sm:text-base">
+                            Designed and developed a responsive business website for Tanva Designs.
+                            Implemented contact form automation using SMTP email service and
+                            integrated quotation forms with Google Sheets for automatic lead storage.
+                        </p>
+
+                        <!-- LINK -->
+                        <a href="https://tanvadesigns.com" target="_blank"
+                            class="text-white flex items-center gap-2 font-semibold hover:gap-3 transition-all text-sm sm:text-base">
+                            View Website
+                            <i class="fas fa-external-link-alt text-xs sm:text-sm"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- SIDE PROJECTS -->
+                <div class="space-y-8 sm:space-y-8">
+
+                    <!-- WEB INTERACTION PROJECT -->
+                    <div
+                        class="glass rounded-3xl p-4 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6 hover:bg-slate-800/50 transition project-card from-left">
+
+                        <div
+                            class="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 bg-purple-900/30 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-2xl sm:text-3xl text-purple-400 icon-float"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg sm:text-xl font-bold mb-2">
+                                Web Analytics
+                            </h4>
+
+                            <p class="text-xs sm:text-sm text-slate-400 mb-4">
+                                Analyzed user interaction data from web applications to measure engagement
+                                metrics and improve UI performance.
+                            </p>
+
+                            <a href="https://github.com/chandunandarapu/Web-Development-Project.git"
+                                class="text-blue-400 text-xs sm:text-sm font-bold">
+                                View Repo
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <!-- FLIPKART PROJECT -->
+                    <div
+                        class="glass rounded-3xl p-4 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6 hover:bg-slate-800/50 transition project-card from-left">
+
+                        <div
+                            class="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 bg-blue-900/30 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-chart-line text-2xl sm:text-3xl text-blue-400 icon-float"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg sm:text-xl font-bold mb-2">
+                                Flipkart Sales Dashboard
+                            </h4>
+
+                            <p class="text-xs sm:text-sm text-slate-400 mb-4">
+                                Analyzed sales data to identify revenue trends, customer patterns,
+                                and product performance using Python and Power BI.
+                            </p>
+
+                            <a href="https://github.com/chandunandarapu/Data_Analytics_Projects.git"
+                                class="text-blue-400 text-xs sm:text-sm font-bold">
+                                View Repo
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                    <!-- HOTEL BOOKING PROJECT -->
+                    <div
+                        class="glass rounded-3xl p-4 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6 hover:bg-slate-800/50 transition project-card from-right">
+
+                        <div
+                            class="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 bg-green-900/30 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-hotel text-2xl sm:text-3xl text-green-400 icon-float"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg sm:text-xl font-bold mb-2">
+                                Hotel Booking Analysis
+                            </h4>
+
+                            <p class="text-xs sm:text-sm text-slate-400 mb-4">
+                                Explored booking data to understand cancellation patterns and
+                                identify factors affecting booking behavior using Python and Excel.
+                            </p>
+
+                            <a href="https://github.com/chandunandarapu/Hotel-Booking-Cancellation-.git"
+                                class="text-blue-400 text-xs sm:text-sm font-bold">
+                                View Repo
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="timeline" class="relative py-16 sm:py-20 md:py-24 overflow-x-hidden bg-center bg-cover"
+        style="background-image: url('Images/timeline.png');">
+        <div class="container mx-auto px-4 sm:px-6">
+
+            <!-- SECTION HEADER -->
+            <div class="text-center mb-12 sm:mb-20">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
+                    Professional <span class="text-blue-500">Journey</span>
+                </h2>
+                <p class="text-sm sm:text-base text-slate-500 dark:text-slate-400 max-w-xl mx-auto px-2">
+                    A step-by-step journey of learning, experience, and career growth.
+                </p>
+            </div>
+
+            <!-- TIMELINE -->
+            <div class="relative overflow-x-auto pb-4">
+                <div class="flex gap-8 sm:gap-12 md:gap-16 min-w-max md:min-w-fit items-start px-2 sm:px-0">
+
+                    <!-- STEP 1 -->
+                    <div class="relative flex-shrink-0 w-56 sm:w-64">
+                        <div class="bg-yellow-400 w-full p-4 sm:p-6 rounded-2xl shadow-xl text-white">
+                            <span class="text-xs font-semibold">2019</span>
+                            <h4 class="text-base sm:text-lg font-bold mt-1">B.Tech Foundation</h4>
+                            <p class="text-xs sm:text-sm mt-2">
+                                Built strong fundamentals in programming and problem-solving during college.
+                            </p>
+                        </div>
+                        <div class="absolute -left-4 top-8 w-6 h-6 bg-yellow-400 rounded-full border-4 border-white">
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="relative flex-shrink-0 w-56 sm:w-64 mt-12 sm:mt-24">
+                        <div class="bg-green-500 w-full p-4 sm:p-6 rounded-2xl shadow-xl text-white">
+                            <span class="text-xs font-semibold">2021</span>
+                            <h4 class="text-base sm:text-lg font-bold mt-1">Skill Exploration</h4>
+                            <p class="text-xs sm:text-sm mt-2">
+                                Learned Python, SQL, Excel, and analytics alongside academic studies.
+                            </p>
+                        </div>
+                        <div class="absolute -left-4 top-8 w-6 h-6 bg-green-500 rounded-full border-4 border-white">
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="relative flex-shrink-0 w-56 sm:w-64">
+                        <div class="bg-cyan-500 w-full p-4 sm:p-6 rounded-2xl shadow-xl text-white">
+                            <span class="text-xs font-semibold">2022</span>
+                            <h4 class="text-base sm:text-lg font-bold mt-1">Internship</h4>
+                            <p class="text-xs sm:text-sm mt-2">
+                                Completed Web Development Internship, gaining real-world project exposure.
+                            </p>
+                        </div>
+                        <div class="absolute -left-4 top-8 w-6 h-6 bg-cyan-500 rounded-full border-4 border-white">
+                        </div>
+                    </div>
+
+                    <!-- STEP 4 -->
+                    <div class="relative flex-shrink-0 w-56 sm:w-64 mt-12 sm:mt-24">
+                        <div class="bg-purple-500 w-full p-4 sm:p-6 rounded-2xl shadow-xl text-white">
+                            <span class="text-xs font-semibold">2023</span>
+                            <h4 class="text-base sm:text-lg font-bold mt-1">Virtual Internships</h4>
+                            <p class="text-xs sm:text-sm mt-2">
+                                Completed programs with TATA & Deloitte, earned certifications.
+                            </p>
+                        </div>
+                        <div class="absolute -left-4 top-8 w-6 h-6 bg-purple-500 rounded-full border-4 border-white">
+                        </div>
+                    </div>
+
+                    <!-- STEP 5 -->
+                    <div class="relative flex-shrink-0 w-56 sm:w-64">
+                        <div class="bg-pink-500 w-full p-4 sm:p-6 rounded-2xl shadow-xl text-white">
+                            <span class="text-xs font-semibold">2024 - Present</span>
+                            <h4 class="text-base sm:text-lg font-bold mt-1">Full Stack Projects</h4>
+                            <p class="text-xs sm:text-sm mt-2">
+                                Developed portfolio and business websites, web applications, APIs, SMTP services, and data dashboards.
+                            </p>
+                        </div>
+                        <div class="absolute -left-4 top-8 w-6 h-6 bg-pink-500 rounded-full border-4 border-white">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 sm:py-20 md:py-24 bg-slate-900/50">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="glass p-6 sm:p-8 md:p-12 rounded-[3rem] grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start md:items-center">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6">Let's build something <span
+                            class="gradient-text">meaningful</span>.</h2>
+                    <p class="text-slate-400 mb-8 text-sm sm:text-base">Currently open to Associate Data Analyst and Python Developer roles. Feel free to reach out!</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 glass rounded-full flex items-center justify-center text-blue-400 flex-shrink-0"><i
+                                    class="fas fa-envelope text-sm sm:text-base"></i></div>
+                            <p class="text-sm sm:text-base">chandunandarapu01@gmail.com</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 glass rounded-full flex items-center justify-center text-blue-400 flex-shrink-0"><i
+                                    class="fab fa-whatsapp text-sm sm:text-base"></i></div>
+                            <p class="text-sm sm:text-base">+91 9493013084</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="https://getform.io/f/aroggxvb" method="POST" class="space-y-4">
+                    <input type="text" name="name" placeholder="What should I call you?"
+                        class="w-full p-3 sm:p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition text-sm sm:text-base"
+                        required>
+                    <input type="tel" name="phone" id="phone" placeholder="Best number to reach you" inputmode="numeric"
+                        class="w-full p-3 sm:p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition text-sm sm:text-base"
+                        required />
+                    <input type="email" name="email" placeholder="Where should I reply?"
+                        class="w-full p-3 sm:p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition text-sm sm:text-base"
+                        required>
+                    <textarea name="message" rows="4" placeholder="Your Message"
+                        class="w-full p-3 sm:p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition text-sm sm:text-base"
+                        required></textarea>
+                    <button type="submit"
+                        class="w-full py-3 sm:py-4 bg-blue-600 rounded-2xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-900/20 text-sm sm:text-base">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 sm:py-10 border-t border-white/10 bg-black">
+        <h3 class="heading-font1 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-4 text-center px-4">
+            CHANDU<span class="text-blue-500">.</span>KRISHNA
+        </h3>
+
+        <p class="text-slate-400 max-w-xl mx-auto mb-4 text-center text-sm sm:text-base px-4">
+            Designing data-driven dashboards, web systems, and digital products
+            for startups and modern businesses.
+        </p>
+
+        <div class="flex justify-center gap-4 sm:gap-6 my-6 text-3xl sm:text-4xl text-slate-400">
+            <a href="mailto:chandunandarapu01@gmail.com"
+                class="text-slate-400 hover:text-blue-400 transition"><i class="fas fa-envelope"></i></a>
+            <a href="https://instagram.com/chandu_nandarapu" class="hover:text-pink-400 transition"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/in/chandunandarapu" class="hover:text-blue-500 transition"><i
+                    class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/chandunandarapu" class="hover:text-white transition"><i
+                    class="fab fa-github"></i></a>
+        </div>
+
+        <p class="text-sm sm:text-base text-slate-500 mb-0 text-center px-4">
+            © 2025 Chandu Krishna — All rights reserved.
+        </p>
+    </footer>
+
+
+    <script>
+
+        // Menu toggle for mobile
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+        const menuCloseBtn = document.getElementById("menu-close-btn");
+        const mobileMenuLinks = document.querySelectorAll("#mobile-menu a");
+
+        // Function to open menu
+        function openMenu() {
+            mobileMenu.classList.remove("hidden");
+            mobileMenuOverlay.classList.remove("hidden");
+            setTimeout(() => {
+                mobileMenu.classList.remove("translate-x-full");
+                mobileMenuOverlay.classList.add("opacity-100");
+            }, 10);
+        }
+
+        // Function to close menu
+        function closeMenu() {
+            mobileMenu.classList.add("translate-x-full");
+            mobileMenuOverlay.classList.remove("opacity-100");
+            setTimeout(() => {
+                mobileMenu.classList.add("hidden");
+                mobileMenuOverlay.classList.add("hidden");
+            }, 300);
+        }
+
+        // Menu button click
+        menuBtn.addEventListener("click", openMenu);
+
+        // Close button click
+        menuCloseBtn.addEventListener("click", closeMenu);
+
+        // Overlay click to close
+        mobileMenuOverlay.addEventListener("click", closeMenu);
+
+        // Close menu when a link is clicked
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener("click", closeMenu);
+        });
+
+        // Text word changes effect        
+        const roles = [
+            "Full Stack Web Developer",
+            "Web Application Developer",
+            "Freelance Web Developer",
+            "Data-Driven Web Developer",
+            "Python Developer"
+        ];
+
+        let index = 0;
+        setInterval(() => {
+            document.getElementById("role").textContent = roles[index];
+            index = (index + 1) % roles.length;
+        }, 2000);
+
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('glass', 'py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('glass', 'py-2');
+                nav.classList.add('py-4');
+            }
+        });
+
+        //Home Section animation
+        /* Fade-up reveal on load */
+        window.addEventListener("load", () => {
+            document.querySelectorAll(".fade-up").forEach((el, i) => {
+                setTimeout(() => el.classList.add("show"), i * 150);
+            });
+
+            document.querySelector(".social").classList.add("show");
+        });
+
+        //Showcase skills animation
+        const statItems = document.querySelectorAll(".stat-item");
+        const statSection = document.getElementById("skills-showcase");
+
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    statItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add("show");
+                        }, index * 200); // one-by-one effect
+                    });
+                    statObserver.disconnect(); // run only once
+                }
+            });
+        }, { threshold: 0.4 });
+
+        statObserver.observe(statSection);
+
+        //reveal animation of about-educate-language
+        const reveals = document.querySelectorAll(".reveal");
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, { threshold: 0.2 });
+
+        reveals.forEach(el => revealObserver.observe(el));
+
+        //skills section animation
+        const skillBoxes = document.querySelectorAll(".skill-box");
+        const skillsSection = document.getElementById("skills");
+
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    skillBoxes.forEach((box, index) => {
+                        setTimeout(() => {
+                            box.classList.add("show");
+                        }, index * 200); // stagger effect
+                    });
+                    skillsObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.4 });
+
+        skillsObserver.observe(skillsSection);
+
+        // Project smooth animation
+        const projectCards = document.querySelectorAll(".project-card");
+
+        const projectObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, { threshold: 0.5 });
+
+        projectCards.forEach(card => projectObserver.observe(card));
+    </script>
+</body>
+
+</html>

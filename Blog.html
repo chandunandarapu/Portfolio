@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog & Services</title>
+    <link rel="icon" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Syncopate:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .heading-font1 {
+            font-family: 'Syncopate', sans-serif;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: .2s
+        }
+
+        .delay-2 {
+            animation-delay: .4s
+        }
+
+        .delay-3 {
+            animation-delay: .6s
+        }
+
+        /* Put inside <style> */
+        .header-active {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll reveal base */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image subtle zoom */
+        .reveal-img {
+            transform: scale(0.95);
+        }
+
+        .reveal.show .reveal-img {
+            transform: scale(1);
+        }
+
+        .social-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Brand Colors — DEFAULT */
+        .social-icon.gmail {
+            color: #EA4335;
+            /* Gmail red */
+        }
+
+
+        /* Cyan */
+        .social-icon.instagram {
+            color: #E1306C;
+        }
+
+        /* Instagram */
+        .social-icon.linkedin {
+            color: #0A66C2;
+        }
+
+        /* LinkedIn */
+        .social-icon.github {
+            color: #ffffff;
+        }
+
+        /* GitHub (white looks best on dark bg) */
+
+        /* Hover polish */
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.08);
+            opacity: 0.9;
+        }
+
+        /* Mobile menu */
+        #mobile-menu {
+            transform-origin: top;
+            transform: scaleY(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #mobile-menu.open {
+            transform: scaleY(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile viewport fix */
+        @media (max-width: 768px) {
+
+            html,
+            body {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            header {
+                background-size: cover !important;
+                background-position: center right !important;
+                width: 100%;
+                margin-left: 0;
+            }
+
+            /* Keep sections inside the viewport without 100vw overflow */
+            section {
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+
+            #contact,
+            footer {
+                width: 100%;
+                margin: 0 auto;
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
+                box-sizing: border-box;
+            }
+
+            #contact {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+
+            #contact h2 {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                word-break: break-word;
+                font-size: 1.875rem !important;
+            }
+
+            .glass {
+                gap: 1.5rem !important;
+                box-sizing: border-box !important;
+            }
+
+            #contact .glass {
+                grid-template-columns: 1fr !important;
+            }
+
+            .glass>div {
+                width: 100% !important;
+            }
+
+            .container {
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            input,
+            textarea {
+                width: 100% !important;
+                box-sizing: border-box !important;
+                font-size: 16px !important;
+            }
+
+            footer {
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
+            }
+
+            footer h3 {
+                word-break: break-word;
+                font-size: 1.75rem !important;
+            }
+
+            footer p {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+            }
+
+            footer .flex {
+                flex-wrap: wrap;
+                row-gap: 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="header" class="fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 py-5 flex justify-between items-center">
+
+            <!-- Logo -->
+            <a href="blog.html" class="flex items-center gap-3 group">
+                <img src="Images/logo.png" class="h-11 w-11 object-contain transition 
+               group-hover:scale-110 
+               group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
+            </a>
+
+            <!-- Navigation -->
+            <div class="hidden md:flex gap-5 text-xs uppercase tracking-widest font-bold items-center">
+                <a href="#blog" class="hover:text-blue-500 transition text-2lg">Resources</a>
+                <a href="#services" class="hover:text-blue-500 transition text-2lg">Capabilities</a>
+                <a href="#testimonials" class="hover:text-blue-500 transition text-2lg">Testimonials</a>
+                <a href="index.html" class="relative px-6 py-2 text-sm font-semibold
+            border border-blue-500 text-blue-400 rounded-full
+            transition-all duration-300
+            hover:text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/40">
+                    Portfolio
+                </a>
+
+                <a href="#contact"
+                    class="bg-blue-600 px-5 py-3 rounded-full hover:bg-white hover:text-black transition">
+                    Request Proposal
+                </a>
+
+            </div>
+
+            <!-- Mobile menu button -->
+            <button id="menu-toggle"
+                class="md:hidden p-3 rounded-full border border-white/10 bg-white/5 text-white transition hover:border-white/30 hover:bg-white/10"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden absolute left-0 top-full w-full bg-black/90 backdrop-blur border-t border-white/10 transition duration-200">
+            <div class="px-6 py-4 flex flex-col gap-3 text-sm uppercase tracking-widest font-bold">
+                <a href="#blog" class="py-2 border-b border-white/5 hover:text-blue-400">Resources</a>
+                <a href="#services" class="py-2 border-b border-white/5 hover:text-blue-400">Capabilities</a>
+                <a href="#testimonials" class="py-2 border-b border-white/5 hover:text-blue-400">Testimonials</a>
+                <a href="index.html" class="py-2 border-b border-white/5 hover:text-blue-400">Portfolio</a>
+                <a href="#contact"
+                    class="py-3 text-center rounded-full bg-blue-600 hover:bg-blue-700 transition">Request Proposal</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
+        style="background-image: url('Images/Blog_Home_background.png'); background-size: cover; background-position: center;">
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black/80"></div>
+
+        <!-- Optional gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/30 via-transparent to-purple-900/30"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-3xl px-6 pt-10 sm:pt-0">
+
+            <h1
+                class="heading-font text-4xl sm:text-5xl md:text-7xl leading-tight font-bold tracking-tighter mb-6 fade-up whitespace-normal md:whitespace-nowrap">
+                BLOG & <span class="text-blue-500">SERVICES</span>
+            </h1>
+
+
+            <p
+                class="text-slate-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-6 sm:mb-10 fade-up delay-1">
+                Developing scalable web applications, data dashboards, and digital platforms that help businesses grow
+                and make smarter decisions.
+            </p>
+
+            <!-- Buttons -->
+            <div
+                class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 fade-up delay-2 w-full sm:w-auto px-4 sm:px-0">
+                <a href="#blog"
+                    class="px-6 sm:px-8 py-2 sm:py-3 border border-white/20 uppercase text-xs sm:text-sm font-bold tracking-widest hover:bg-blue-500 hover:text-black transition text-center">
+                    Read Blog
+                </a>
+
+                <a href="#services"
+                    class="px-6 sm:px-8 py-2 sm:py-3 bg-blue-500 uppercase text-xs sm:text-sm font-bold tracking-widest hover:bg-white hover:text-black transition text-center">
+                    View Services
+                </a>
+            </div>
+        </div>
+        <!-- Home Section Social Icons (Vertical, Home-only) -->
+        <div class="absolute right-4 sm:right-6 bottom-6 sm:bottom-10 hidden md:flex items-center gap-4 sm:gap-6 z-20">
+
+            <a href="mailto:chandunandarapu01@gmail.com" class="social-icon gmail text-4xl" aria-label="Email me">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+            <a href="https://instagram.com/chandu_nandarapu" target="_blank" class="social-icon instagram text-4xl">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/chandunandarapu" target="_blank" class="social-icon linkedin text-4xl">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+
+            <a href="https://github.com/chandunandarapu" target="_blank" class="social-icon github text-4xl">
+                <i class="fab fa-github"></i>
+            </a>
+
+        </div>
+
+
+
+    </header>
+
+
+    <section id="blog" class="relative py-24 md:py-32 border-t border-white/10 bg-black overflow-hidden"
+        style="background-image: url('Images/Blog_Background_image.jpg'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/80 to-black/75"></div>
+
+        <div class="relative z-10 container mx-auto px-4 sm:px-6 space-y-16 md:space-y-32">
+
+            <!-- SECTION HEADER -->
+            <div class="max-w-3xl">
+                <h2 class="heading-font text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+                    Latest <span class="text-blue-500">Insights</span>
+                </h2>
+                <p class="text-slate-400">
+                    Practical thoughts on analytics, dashboards, and digital systems for modern businesses.
+                </p>
+            </div>
+
+            <!-- CARD 1 -->
+            <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center reveal">
+                <img src="Images/Blog_Web_image.jpg"
+                    class="w-full rounded-3xl reveal-img shadow-xl border border-white/10" alt="">
+                <div>
+                    <span class="text-blue-500 text-xs uppercase tracking-widest font-bold">Web</span>
+                    <h3 class="text-3xl font-bold mt-4 mb-4">
+                        Building Modern Websites for Growing Businesses
+                    </h3>
+                    <p class="text-slate-400 mb-6">
+                        From portfolio websites and business websites to e-commerce platforms and dynamic web
+                        applications, modern web development helps companies establish a strong digital presence,
+                        improve customer engagement, and scale their online operations effectively. <br> <br>
+                        • Build a strong online presence with professional websites that showcase services, portfolios,
+                        and brand identity to attract potential customers.<br>
+                        • Develop scalable web solutions including portfolio websites, e-commerce platforms, and web
+                        applications that help businesses generate leads and grow online.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center reveal">
+                <div class="order-2 md:order-1">
+                    <span class="text-purple-400 text-xs uppercase tracking-widest font-bold">Dynamic Web Applications
+                        and Data Dashboard Solutions</span>
+                    <h3 class="text-3xl font-bold mt-4 mb-4">
+                        Dynamic Web Applications and Data Dashboards
+                    </h3>
+                    <p class="text-slate-400 mb-6">
+                        Develop dynamic web applications and dashboards that transform data into actionable insights.
+                        From building responsive websites and backend systems to integrating SMTP email services and
+                        Google Sheets APIs, the solution enables automated data collection, reporting, and clear
+                        visualization to support better business decisions.<br> <br>
+                        • Build dynamic web applications and dashboards that transform raw data into clear visual
+                        insights, helping businesses make faster and smarter decisions.<br>
+                        •Develop scalable solutions with automated workflows using SMTP email integration and Google
+                        Sheets API to collect, manage, and visualize real-time data efficiently.
+                    </p>
+                </div>
+                <img src="Images/Blog_PowerBI_image.jpg"
+                    class="order-1 md:order-2 w-full rounded-3xl reveal-img shadow-xl border border-white/10" alt="">
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center reveal">
+                <img src="Images/Blog_Analytics_image.png"
+                    class="w-full rounded-3xl reveal-img shadow-xl border border-white/10" alt="">
+                <div>
+                    <span class="text-cyan-400 text-xs uppercase tracking-widest font-bold">Analytics</span>
+                    <h3 class="text-3xl font-bold mt-4 mb-4">
+                        From Raw Data to Business Decisions
+                    </h3>
+                    <p class="text-slate-400 mb-6">
+                        Transform raw data into meaningful insights through interactive dashboards and data-driven web
+                        applications. By organizing and visualizing business data effectively, organizations can
+                        identify trends, monitor performance, and make faster, more confident decisions that support
+                        growth and operational efficiency.<br> <br>
+                        • Create interactive dashboards that present complex data in clear visual formats for quick
+                        business insights.<br>
+                        • Enable data-driven decision making by transforming large datasets into structured reports and
+                        actionable metrics.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center reveal">
+                <div class="order-2 md:order-1">
+                    <span class="text-green-400 text-xs uppercase tracking-widest font-bold">Systems</span>
+                    <h3 class="text-3xl font-bold mt-4 mb-4">
+                        Building Scalable Data Systems for Growth
+                    </h3>
+                    <p class="text-slate-400 mb-6">
+                        Design and develop scalable data systems that support modern web applications and business
+                        platforms. By combining efficient backend architecture, database management, and automated data
+                        pipelines, organizations can process large volumes of information reliably and maintain high
+                        performance as their systems grow.<br> <br>
+                        • Design scalable backend systems that efficiently handle growing data and user traffic.<br>
+                        • Implement structured data pipelines and database solutions to ensure reliable processing and
+                        performance.
+                    </p>
+
+                </div>
+                <img src="Images/Blog_Systems_image.jpg"
+                    class="order-1 md:order-2 w-full rounded-3xl reveal-img shadow-xl border border-white/10" alt="">
+            </div>
+
+        </div>
+    </section>
+
+    <section id="services" class="py-32 bg-black border-t border-white/10">
+        <div class="container mx-auto px-4 sm:px-6">
+
+            <!-- Section Header -->
+            <div class="mb-20 max-w-3xl">
+                <h2 class="heading-font text-4xl sm:text-5xl md:text-5xl font-bold mb-4">
+                    Services <span class="text-blue-500">Offered</span>
+                </h2>
+                <p class="text-slate-400">
+                    End-to-end web solutions combining development, data insights, and scalable systems.
+                </p>
+            </div>
+
+            <!-- Service Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Service 1 -->
+                <div class="reveal border border-white/10 p-10 rounded-2xl hover:border-blue-500/50 transition">
+                    <div class="text-blue-500 text-4xl mb-6">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        Web & Portfolio Websites
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        High-performance websites for startups, founders, and professionals,
+                        designed for speed, responsiveness, and a strong digital presence that
+                        attracts clients and business opportunities.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="reveal border border-white/10 p-10 rounded-2xl hover:border-blue-500/50 transition">
+                    <div class="text-blue-500 text-4xl mb-6">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        Data Dashboards & Analytics Insights
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Interactive dashboards and visual reports that transform complex data into clear insights,
+                        helping organizations track performance and make data-driven decisions.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="reveal border border-white/10 p-10 rounded-2xl hover:border-blue-500/50 transition">
+                    <div class="text-blue-500 text-4xl mb-6">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        Web Applications & Backend Systems
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Develop scalable web applications and backend systems using modern technologies,
+                        enabling automation, efficient data management, API integrations, and reliable
+                        digital platforms for growing businesses.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-28 border-t border-white/10 overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="heading-font text-5xl font-bold mb-16 fade-up">
+                Client <span class="text-blue-500">Reviews</span>
+            </h2>
+
+            <!-- Slider Wrapper -->
+            <div class="relative">
+                <div id="testimonial-track" class="flex gap-6 sm:gap-8 transition-transform duration-700 ease-in-out">
+
+                    <!-- Card 1 -->
+                    <div
+                        class="min-w-[92%] sm:min-w-[70%] md:min-w-[48%] border border-white/10 p-8 sm:p-10 rounded-xl testimonial-card">
+                        <p class="text-slate-300 italic mb-6">
+                            "Chandu built our business website exactly as we envisioned. Clean design, smooth
+                            functionality, and excellent communication throughout the project."
+                        </p>
+                        <span class="text-blue-500 font-bold">Tanva Designs</span>
+                        <p class="text-xs text-slate-500">Interior Design Business Website</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="min-w-[92%] sm:min-w-[70%] md:min-w-[48%] border border-white/10 p-8 sm:p-10 rounded-xl testimonial-card">
+                        <p class="text-slate-300 italic mb-6">
+                            “My portfolio website looks professional and modern.
+                            Very smooth experience from start to finish.”
+                        </p>
+                        <span class="text-blue-500 font-bold">Durga Bhavani</span>
+                        <p class="text-xs text-slate-500">Personal Portfolio Website</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="min-w-[92%] sm:min-w-[70%] md:min-w-[48%] border border-white/10 p-8 sm:p-10 rounded-xl testimonial-card">
+                        <p class="text-slate-300 italic mb-6">
+                            “Chandu built our startup dashboard exactly as we envisioned.
+                            Clean design, actionable insights, and excellent communication throughout the project.”
+                        </p>
+                        <span class="text-blue-500 font-bold">Tanva Designs</span>
+                        <p class="text-xs text-slate-500">Business Intelligence Dashboard</p>
+                    </div>
+
+                    <div
+                        class="min-w-[92%] sm:min-w-[70%] md:min-w-[48%] border border-white/10 p-8 sm:p-10 rounded-xl testimonial-card">
+                        <p class="text-slate-300 italic mb-6">
+                            “My portfolio website looks professional and modern. The entire process was smooth,
+                            well-organized, and delivered exactly as expected.”
+                        </p>
+                        <span class="text-blue-500 font-bold">Krishna</span>
+                        <p class="text-xs text-slate-500">Portfolio Website</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16 sm:py-20 md:py-24 bg-slate-900/50">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div
+                class="glass p-6 sm:p-8 md:p-12 rounded-[3rem] grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start md:items-center">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6">Let's build something <span
+                            class="gradient-text">meaningful</span>.</h2>
+                    <p class="text-slate-400 mb-8 text-sm sm:text-base">Currently open to Associate Data Analyst and
+                        Python Developer roles. Feel free to reach out!</p>
+
+                    <div class="space-y-4 -ml-[2px] sm:ml-0">
+                        <div class="flex items-center gap-1">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 glass rounded-full flex items-center justify-center text-blue-400 flex-shrink-0">
+                                <i class="fas fa-envelope text-sm sm:text-base"></i>
+                            </div>
+                            <a href="mailto:chandunandarapu01@gmail.com" target="_blank"
+                                class="text-sm sm:text-base hover:text-blue-400">
+                                chandunandarapu01@gmail.com
+                            </a>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 glass rounded-full flex items-center justify-center text-blue-400 flex-shrink-0">
+                                <i class="fab fa-whatsapp text-sm sm:text-base"></i>
+                            </div>
+                            <a href="https://wa.me/919493013084" target="_blank"
+                                class="text-sm sm:text-base hover:text-blue-400">
+                                +91 9493013084
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="https://getform.io/f/aroggxvb" method="POST" class="space-y-4">
+                    <input type="text" name="name" placeholder="What should I call you?"
+                        class="w-full p-3 sm:p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition text-sm sm:text-base"
+                        required>
+                    <input type="tel" name="phone" id="phone" placeholder="Best number to reach you" inputmode="numeric"
+                        class="w-full p-3 sm:p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition text-sm sm:text-base"
+                        required />
+                    <input type="email" name="email" placeholder="Where should I reply?"
+                        class="w-full p-3 sm:p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition text-sm sm:text-base"
+                        required>
+                    <textarea name="message" rows="4" placeholder="Your Message"
+                        class="w-full p-3 sm:p-4 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition text-sm sm:text-base"
+                        required></textarea>
+                    <button type="submit"
+                        class="w-full py-3 sm:py-4 bg-blue-600 rounded-2xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-900/20 text-sm sm:text-base">Send
+                        Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="py-8 sm:py-10 border-t border-white/10 bg-black text-center">
+
+        <h3 class="heading-font1 text-xl sm:text-xl md:text-2xl font-bold tracking-tight mb-4 whitespace-nowrap">
+            CHANDU<span class="text-blue-500">.</span>KRISHNA
+        </h3>
+        <h3 class="heading-font1 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight mb-4 text-center whitespace-nowrap"></h3>
+
+        <p class="text-slate-400 max-w-xl mx-auto mb-4 text-sm sm:text-base px-4">
+            Designing data-driven dashboards, web systems, and digital products
+            for startups and modern businesses.
+        </p>
+
+        <div class="flex justify-center items-center gap-6 my-6 text-3xl sm:text-4xl text-slate-400">
+            <a href="mailto:chandunandarapu01@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://instagram.com/chandu_nandarapu"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/in/chandunandarapu"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/chandunandarapu"><i class="fab fa-github"></i></a>
+        </div>
+
+        <p class="text-sm sm:text-base text-slate-500">
+            © 2025 Chandu Krishna — All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <script>
+        // Hide and Reveal header Background
+        const header = document.getElementById("header");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 10) {
+                header.classList.add("header-active");
+            } else {
+                header.classList.remove("header-active");
+            }
+        });
+
+        // Blog section animation
+        const reveals = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('show');
+                    }, index * 200); // stagger effect
+                }
+            });
+        }, { threshold: 0.2 });
+
+        reveals.forEach(r => observer.observe(r));
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener("click", () => {
+                mobileMenu.classList.toggle("open");
+            });
+
+            mobileMenu.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", () => mobileMenu.classList.remove("open"));
+            });
+        }
+
+        // Testimonial animation
+        const track = document.getElementById("testimonial-track");
+        let cards = document.querySelectorAll(".testimonial-card");
+        const gap = 32;
+
+        // Clone first & last cards
+        const firstClone = cards[0].cloneNode(true);
+        const lastClone = cards[cards.length - 1].cloneNode(true);
+
+        track.appendChild(firstClone);
+        track.insertBefore(lastClone, cards[0]);
+
+        cards = document.querySelectorAll(".testimonial-card");
+
+        let index = 1;
+        let cardWidth = cards[index].offsetWidth + gap;
+
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+        function recalcCardWidth() {
+            if (!cards[index]) index = 1;
+            cardWidth = cards[index].offsetWidth + gap;
+            track.style.transition = "none";
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+            requestAnimationFrame(() => {
+                track.style.transition = "transform 0.7s ease-in-out";
+            });
+        }
+
+        function slideNext() {
+            index++;
+            track.style.transition = "transform 0.7s ease-in-out";
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+        }
+
+        track.addEventListener("transitionend", () => {
+            if (cards[index] === firstClone) {
+                track.style.transition = "none";
+                index = 1;
+                track.style.transform = `translateX(-${index * cardWidth}px)`;
+            }
+
+            if (cards[index] === lastClone) {
+                track.style.transition = "none";
+                index = cards.length - 2;
+                track.style.transform = `translateX(-${index * cardWidth}px)`;
+            }
+        });
+
+        let interval = setInterval(slideNext, 4000);
+
+        // Pause on hover
+        track.addEventListener("mouseenter", () => clearInterval(interval));
+        track.addEventListener("mouseleave", () => {
+            interval = setInterval(slideNext, 4000);
+        });
+
+        // Swipe support
+        let startX = 0;
+        track.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+        track.addEventListener("touchend", e => {
+            const endX = e.changedTouches[0].clientX;
+            if (startX - endX > 50) slideNext();
+            if (endX - startX > 50) {
+                index -= 2;
+                slideNext();
+            }
+        });
+
+        window.addEventListener("resize", recalcCardWidth);
+    </script>
+
+</body>
+
+</html>
